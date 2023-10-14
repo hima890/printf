@@ -39,9 +39,15 @@ char *appendToStringBuffer(char *buffer, const char *str_to_append)
     // Check if there's enough space to append the string
     if (buffer_len + str_len >= strlen(buffer))
     {
-        // If not, you can choose to reallocate the buffer with more space
-        // or return NULL to indicate an error.
-        return NULL;
+        // Not enough space, so reallocate the buffer
+        size_t new_size = buffer_len + str_len + 1;  // +1 for the null-terminator
+        char *new_buffer = (char *)realloc(buffer, new_size);
+        if (new_buffer == NULL)
+        {
+            printf("Error: Memory reallocation failed\n");
+            return NULL;
+        }
+        buffer = new_buffer;
     }
 
     // Append the string to the buffer

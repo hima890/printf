@@ -1,5 +1,9 @@
 /* Header files goes here */
 #include "../printf/main.h"
+#include <stdio.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
 
 
 /**

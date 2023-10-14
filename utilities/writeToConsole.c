@@ -24,9 +24,10 @@
  */
 
 
-
-void writeToConsole(const char *buffer) {
-    if (buffer != NULL) {
+void writeToConsole(const char *buffer)
+{
+    if (buffer != NULL)
+    {
         write(STDOUT_FILENO, buffer, strlen(buffer));
     }
 }
