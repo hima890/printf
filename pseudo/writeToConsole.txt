@@ -1,0 +1,5 @@
+function writeToConsole(buffer: character pointer)
+    if buffer is not null
+        write the contents of buffer to standard output
+    end if
+end function

@@ -1,0 +1,16 @@
+function initializeStringBuffer(buffer_size: integer) returns character pointer
+    if buffer_size is less than or equal to 0
+        display "Error: Invalid buffer size"
+        return null
+    end if
+
+    buffer_pointer: character pointer
+    allocate memory for buffer_pointer of size buffer_size * size of character
+
+    if buffer_pointer is null
+        return null
+    end if
+
+    set all elements in buffer_pointer to '\0'
+    return buffer_pointer
+end function

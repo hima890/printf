@@ -1,0 +1,15 @@
+function appendToStringBuffer(buffer: character pointer, str_to_append: character pointer) returns character pointer
+    if either buffer or str_to_append is null
+        return buffer
+    end if
+
+    buffer_len = length of buffer
+    str_len = length of str_to_append
+
+    if buffer_len + str_len is greater than or equal to the maximum buffer length
+        return null
+    end if
+
+    concatenate str_to_append to the end of buffer
+    return buffer
+end function
