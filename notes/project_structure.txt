@@ -1,0 +1,25 @@
+printf-implementation-c is the repo's name
+printf-implementation-c/ main dirctory
+│
+├── main.h          # Header file containing function prototypes
+├── printf.c        # Implementation of your custom printf function
+├── string.c        # Implementation of functions for handling string formatting
+├── integer.c       # Implementation of functions for handling integer formatting
+├── character.c     # Implementation of functions for handling character formatting
+├── print_utils.c    # Utility functions used in printf.c
+│
+├── test/           # Directory for test files (optional)
+│   ├── main_test.c # Main test program
+│   ├── test_string.c # Tests for string formatting functions
+│   ├── test_integer.c # Tests for integer formatting functions
+│   ├── test_character.c # Tests for character formatting functions
+│   ├── test_print_utils.c # Tests for utility functions
+|
+│── flowchart/   # Directory for flowchart
+│   ├── printf_main_flowchart.drawio # Main
+│   
+│
+│── notes/   # Directory for notes
+│   ├── file_name.txt
+│
+├── README.md       # Project documentation

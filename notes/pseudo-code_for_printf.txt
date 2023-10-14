@@ -1,0 +1,40 @@
+// Pseudo-code for the printf() function
+
+0. If no Argument and Specifiers write the string to std out put.
+1. If there is miss match in data types between the Argument and Specifiers rise a warning.
+2. If there is miss match in number between the Argument and Specifiers rise a warning.
+3. If there a match Argument and Specifiers :
+    0. Call the crospanding function for each Specifiers
+    1. Call the Converting function to ensures that the data is appropriately formatted for printing
+    2. Call the write function to write the final foramted string
+
+
+CHATGPT :
+// Pseudo-code for a simplified printf() function
+
+1. FUNCTION printf(format_string, ...arguments):
+2.     Initialize an index variable i to 0
+3.     Initialize an empty string output to store the final formatted string
+4.     
+5.     WHILE i < length of format_string:
+6.         IF format_string[i] is not '%':
+7.             Append format_string[i] to output
+8.         ELSE:
+9.             Increment i to move past '%'
+10.            IF format_string[i] is not a valid specifier:
+11.                Raise a warning about an invalid format specifier
+12.            ELSE:
+13.                Find the corresponding argument for the specifier
+14.                IF argument data type does not match specifier:
+15.                    Raise a warning about a data type mismatch
+16.                ELSE:
+17.                    Call the corresponding formatting function for the specifier
+18.                    Convert the data to the appropriate format for printing
+19.                    Append the formatted data to output
+20.                    Increment i to move past the specifier
+21. 
+22.     END WHILE
+23. 
+24.     Call a write function to write the final formatted output to the standard output
+25. 
+26. END FUNCTION
