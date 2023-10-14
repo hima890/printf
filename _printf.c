@@ -2,7 +2,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include "../header/main.h"
+#include "header/main.h"
 
 void copyString(char *dest, const char *src);
 
