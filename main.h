@@ -23,5 +23,8 @@ void *findTheCorresponding_argiment(char input_string_specifier, va_list input_s
 int *isArgumentDataType_match_specifier(char input_string_specifier, void *corresponding_argiment);
 void *argimentFormattingAnd_converting(void *corresponding_argiment);
 void *convert(void *corresponding_argiment);
+char *initializeStringBuffer(int buffer_size);
+void writeToConsole(const char *buffer);
+
 
 #endif

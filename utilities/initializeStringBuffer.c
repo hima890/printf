@@ -1,4 +1,4 @@
-#include "../header/main.h"
+#include "../printf/main.h"
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
@@ -20,13 +20,14 @@
  *   longer needed.
  *
  * Return: A pointer to the initialized character buffer, or NULL on failure.
-*/
+ */
 
 char *initializeStringBuffer(int buffer_size)
 {
-    char *buffer_pionter;/* Pointer to the memory block */
+    char *buffer_pionter; /* Pointer to the memory block */
 
-    if (buffer_size <= 0) {
+    if (buffer_size <= 0)
+    {
         /* Handle invalid buffer size */
         printf("Error invalid buffer size\n");
         return NULL;
@@ -46,6 +47,4 @@ char *initializeStringBuffer(int buffer_size)
     return (buffer_pionter);
 
     /* Dont forget to free the pionter */
-
 }
-

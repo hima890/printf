@@ -35,7 +35,7 @@
  * Return: None (void)
 */
 
-char *_printf(char *format, ...)
+int _printf(const char *format, ...)
 {
     /* Dec. the vars names and types */
     /* The user sting input is stored in "input_string" */
