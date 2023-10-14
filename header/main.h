@@ -15,7 +15,7 @@
 
 
 /*Functions prototypes goes here */
-char *_printf(char *input_string, ...);
+char *_printf(char *format, ...);
 char *initializeStringBuffer(int buffer_size);
 void *write_theBuffer_toStdOutput();
 int *isValid_specifier(char input_string_specifier);
