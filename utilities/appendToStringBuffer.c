@@ -36,11 +36,11 @@ char *appendToStringBuffer(char *buffer, const char *str_to_append)
     size_t buffer_len = strlen(buffer);
     size_t str_len = strlen(str_to_append);
 
-    // Check if there's enough space to append the string
+    /*Check if there's enough space to append the string*/ 
     if (buffer_len + str_len >= strlen(buffer))
     {
-        // Not enough space, so reallocate the buffer
-        size_t new_size = buffer_len + str_len + 1;  // +1 for the null-terminator
+        /* Not enough space, so reallocate the buffer*/
+        size_t new_size = buffer_len + str_len + 1;  /* +1 for the null-terminator*/
         char *new_buffer = (char *)realloc(buffer, new_size);
         if (new_buffer == NULL)
         {
@@ -50,7 +50,7 @@ char *appendToStringBuffer(char *buffer, const char *str_to_append)
         buffer = new_buffer;
     }
 
-    // Append the string to the buffer
+    /* Append the string to the buffer*/
     strcat(buffer, str_to_append);
 
     return buffer;
