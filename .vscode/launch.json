@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/Raider/Desktop/printf/printf/main_fuction",
-      "program": "c:/Users/Raider/Desktop/printf/printf/main_fuction/build/Debug/outDebug",
+      "cwd": "c:/Users/Raider/Desktop/printf/printf",
+      "program": "c:/Users/Raider/Desktop/printf/printf/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
