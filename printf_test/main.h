@@ -23,7 +23,6 @@ char *appendToCharBuffer(char *buffer, char char_to_append);
 char *initializeStringBuffer(int buffer_size);
 int *isValid_specifier(char input_string_specifier);
 void *argimentFormattingAnd_converting(void *corresponding_argiment);
-void *convert(void *corresponding_argiment);
 char *initializeStringBuffer(int buffer_size);
 void writeToConsole(const char *buffer);
 
