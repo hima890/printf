@@ -123,8 +123,8 @@ int _printf(const char *format, ...)
                     /* Process the argument based on the determined data type */
                     if (format[input_string_index] == 'c')
                     {
-                        char value = va_arg(input_string_arg, int);
-                        char formated_argiment = charcterFormating(value);
+                        char value = va_arg(input_string_arg, char);
+                        char *formated_argiment = charToString(value);
                         appendToCharBuffer(input_string_buffer, formated_argiment);
                     }
                     else if (format[input_string_index] == 'i')
