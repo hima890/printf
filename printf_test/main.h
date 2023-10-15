@@ -22,6 +22,7 @@ char *initializeStringBuffer(int buffer_size);
 bool containsStringSpecifier(const char* input);
 char *charToString(char character);
 char *intToString(int number);
+char *floatToString(float number);
 void writeToConsole(const char *buffer);
 
 
