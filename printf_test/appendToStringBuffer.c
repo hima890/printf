@@ -63,7 +63,7 @@ char *appendToCharBuffer(char *buffer, char char_to_append)
 
     /* Append the character to the buffer */
     buffer[buffer_len] = char_to_append;
-    buffer[buffer_len + 1] = '\0'; // Null-terminate the string
+    buffer[buffer_len + 1] = '\0'; /* Null-terminate the string */
 
     /* Return the buffer pointer */
     return buffer;

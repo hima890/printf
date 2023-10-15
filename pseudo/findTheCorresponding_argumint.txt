@@ -1,0 +1,61 @@
+
+// Define the type_list structure
+structure type_list:
+    character theSpicifier
+    string theDataType
+
+// Define the types array with specifiers and data types
+types[] = [
+    { 'c', "char" },
+    { 'i', "int" },
+    { 'f', "float" },
+    { 's', "string" },
+    { 0, NULL }  // Sentinel value indicating the end of the list
+]
+
+// Initialize variables
+integer typesLoop_index
+integer dataType_index
+
+// Initialize a va_list for variadic arguments
+va_list input_string_arg
+va_start(input_string_arg, spicifier)
+
+// Set dataType_index to -1 initially
+dataType_index = -1
+
+// Loop through the types array to find the data type index
+for typesLoop_index from 0 to length(types) - 1:
+    if spicifier equals types[typesLoop_index].theSpicifier:
+        // Match found, store the data type index and break the loop
+        dataType_index = typesLoop_index
+        break
+
+// Check if a valid data type index was found
+if dataType_index is not -1:
+    // Process based on the specifier
+    if spicifier is 'c':
+        // Extract a character and print it
+        character value = va_arg(input_string_arg, int)
+        print("Received a char: " + value)
+    else if spicifier is 'i':
+        // Extract an integer and print it
+        integer value = va_arg(input_string_arg, int)
+        print("Received an int: " + value)
+    else if spicifier is 'f':
+        // Extract a float and print it
+        float value = va_arg(input_string_arg, double)
+        print("Received a float: " + value)
+    else if spicifier is 's':
+        // Extract a string and print it
+        string value = va_arg(input_string_arg, string)
+        print("Received a string: " + value)
+else:
+    // Unknown specifier
+    print("Unknown specifier: " + spicifier)
+
+// Clean up the va_list
+va_end(input_string_arg)
+
+// Return a status code (0 for success)
+return 0
