@@ -23,6 +23,7 @@ int _printf(const char *format, ...);
 char *appendToCharBuffer(char *buffer, char char_to_append);
 char *initializeStringBuffer(int buffer_size);
 bool containsStringSpecifier(const char *input);
+char *charToString(char character);
 void writeToConsole(const char *buffer);
 
 
