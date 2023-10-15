@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "main.h"
+#include "../main.h"
 
 /**
  * appendToStringBuffer - Appends a string to an existing character buffer.
@@ -26,13 +26,15 @@
  */
 char *appendToCharBuffer(char *buffer, const char *str_to_append)
 {
+    size_t buffer_len;
+    size_t str_len;
     if (buffer == NULL)
     {
         return NULL;
     }
 
-    size_t buffer_len = strlen(buffer);
-    size_t str_len = strlen(str_to_append);
+    buffer_len = strlen(buffer);
+    str_len = strlen(str_to_append);
 
     char *new_buffer = (char *)realloc(buffer, buffer_len + str_len + 1); /* Allocate space for the string and null-terminator */
 
