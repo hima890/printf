@@ -1,7 +1,8 @@
-#include "../printf/main.h"
-#include <string.h>
-#include <stdlib.h>
+/* Header files goes here */
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include "../main.h"
 
 /**
  * initializeStringBuffer - Initializes a character buffer of a specified size.

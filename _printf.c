@@ -1,7 +1,8 @@
 /* Header files goes here */
-#include "../printf/main.h"
-
-
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include "main.h"
 
 
 /**
@@ -130,4 +131,6 @@ int _printf(const char *format, ...)
 
     /* Print a message if string is empty */
     printf("Error zero-length gnu_printf format string\n");
+    /* A place holder for the total printed charchter */
+    return (0); 
 }

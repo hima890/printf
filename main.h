@@ -2,10 +2,8 @@
 #define MAIN_H
 
 /* Header files goes here */
-#include <stdio.h>
 #include <stdarg.h>
-#include <stdlib.h>
-#include <string.h>
+
 
 
 /* Defind morcos goes here*/
@@ -15,7 +13,7 @@
 
 
 /*Functions prototypes goes here */
-char *_printf(char *format, ...);
+int _printf(const char *format, ...);
 char *initializeStringBuffer(int buffer_size);
 void *write_theBuffer_toStdOutput();
 int *isValid_specifier(char input_string_specifier);
