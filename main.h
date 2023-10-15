@@ -2,7 +2,7 @@
 #define MAIN_H
 
 /* Header files goes here */
-#include <stdarg.h>
+#include <stdbool.h>
 
 
 
@@ -23,9 +23,6 @@ int _printf(const char *format, ...);
 char *appendToCharBuffer(char *buffer, char char_to_append);
 char *initializeStringBuffer(int buffer_size);
 bool containsStringSpecifier(const char *input);
-void *argimentFormattingAnd_converting(void *corresponding_argiment);
-void *convert(void *corresponding_argiment);
-char *initializeStringBuffer(int buffer_size);
 void writeToConsole(const char *buffer);
 
 

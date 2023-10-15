@@ -2,9 +2,7 @@
 #define MAIN_H
 
 /* Header files goes here */
-#include <stdarg.h>
-
-
+#include <stdbool.h>
 
 /* Defind morcos goes here*/
 #define BUFFER_SIZE 1024
@@ -21,9 +19,7 @@ typedef struct {
 int _printf(const char *format, ...);
 char *appendToCharBuffer(char *buffer, char char_to_append);
 char *initializeStringBuffer(int buffer_size);
-int *isValid_specifier(char input_string_specifier);
-void *argimentFormattingAnd_converting(void *corresponding_argiment);
-char *initializeStringBuffer(int buffer_size);
+bool containsStringSpecifier(const char* input);
 void writeToConsole(const char *buffer);
 
 
