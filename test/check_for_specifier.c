@@ -86,35 +86,38 @@ void writeToConsole(const char *buffer)
     }
 }
 
-bool containsStringSpecifier(const char *input) {
-    if (input == NULL) {
+bool containsStringSpecifier(const char *input)
+{
+    int loopIndex;
+    int length;
+    if (input == NULL)
+    {
         /*to handle null input*/
         
-        return false;
+        return (false);
     }
 
-    int length = strlen(input);
-    for (int i = 0; i < length; i++) {
-        if (input[i] == '%') {
-            if (i + 1 < length) {
-                char nextChar = input[i + 1];
-                if (nextChar == 's' || nextChar == 'd' || nextChar == 'f' || nextChar == 'c') {
+    length = strlen(input);
+    for (loopIndex = 0; loopIndex < length; loopIndex++)
+    {
+        if (input[loopIndex] == '%')
+        {
+            if ((loopIndex + 1) < length)
+            {
+                char nextChar = input[loopIndex + 1];
+                if (nextChar == 's' || nextChar == 'd' || nextChar == 'f' || nextChar == 'c')
+                {
                     /* Check for known string specifiers like %s, %d, %f, %c, etc.*/
-
-
-                    /*Code to handle the string specificer goes here*/
-                    printf("string specifier Foud must be handled ");
-                    return true;
+                    return (true);
                 }
             }
         }
     }
 
     /*normal printing goes here*/
-    printf("No string specifier print the string normally");
-    
-    return false;
+    return (false);
 }
+
 
 
 

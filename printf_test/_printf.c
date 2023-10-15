@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdbool.h>
 #include "main.h"
 
 
@@ -85,7 +86,7 @@ int _printf(const char *format, ...)
         {
             input_string_index++; /* Incrise the charchter index after the "%" to get the specifier */
             /* Check for Valid specifier */
-            if (isValid_specifier(format[input_string_index]) != NULL) /* If its not valid specifier */
+            if (isValid_specifier(format[input_string_index]) != true) /* If its not valid specifier */
             {   
                 /* Print a message and break the loop */
                 printf("Error not a valid specifier\n");

@@ -22,7 +22,7 @@ typedef struct {
 int _printf(const char *format, ...);
 char *appendToCharBuffer(char *buffer, char char_to_append);
 char *initializeStringBuffer(int buffer_size);
-int *isValid_specifier(char input_string_specifier);
+bool containsStringSpecifier(const char *input);
 void *argimentFormattingAnd_converting(void *corresponding_argiment);
 void *convert(void *corresponding_argiment);
 char *initializeStringBuffer(int buffer_size);
