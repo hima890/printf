@@ -1,0 +1,17 @@
+Function containsStringSpecifier(input)
+    if input is NULL
+        return false
+    
+    length = length of input
+    for i = 0 to length - 1
+        if input[i] is equal to '%'
+            if i + 1 < length
+                nextChar = input[i + 1]
+                if nextChar is equal to 's' OR nextChar is equal to 'd' OR nextChar is equal to 'f' OR nextChar is equal to 'c'
+                    return true
+            End If
+        End If
+    End For
+
+    return false
+End Function
