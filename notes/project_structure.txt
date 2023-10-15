@@ -1,5 +1,6 @@
 printf-implementation-c is the repo's name
-printf-implementation-c/ main dirctory
+
+printf-/ main dirctory
 │
 ├── main.h          # Header file containing function prototypes
 ├── printf.c        # Implementation of your custom printf function

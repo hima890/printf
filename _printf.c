@@ -45,15 +45,15 @@ int _printf(const char *format, ...)
     char *input_string_buffer; /* Pointer to the buffer */
     void *corresponding_argiment; /* Pointer To the corresponding argiment */
     void *formated_argiment; /* Pointer To the  formated argiment */
+    va_list input_string_arg; /* Dec. the aruments list */
 
-    /* Ini. the vars valous */
+    /* Init. the vars valous */
     /* +1 to count the '\0' in the string lenght*/
     input_string_lenght = (strlen(format) + 1);
     input_string_index = 0;
     input_string_buffer = initializeStringBuffer(BUFFER_SIZE);
 
     /* The variadic function set up */
-    va_list input_string_arg;
     va_start(input_string_arg, format);
 
     /* Loop throght the charchters of the input_string */
@@ -66,14 +66,14 @@ int _printf(const char *format, ...)
             if (format[input_string_index] != '\0')
             {
                 /* Append to the charchter to the buffer */
-                append_inputString_to_theBuffer(format[input_string_index]);
+                appendToCharBuffer(input_string_buffer, format[input_string_index]);
             
             }
             /* Check if its the end of the input string */
             else if (format[input_string_index] == '\0')
             {
                 /* Write the content of the buffer to the main output and break the loop */
-                write_theBuffer_toStdOutput();
+                writeToConsole(input_string_buffer);
                 break;
             }
             
@@ -83,7 +83,7 @@ int _printf(const char *format, ...)
         {
             input_string_index++; /* Incrise the charchter index after the "%" to get the specifier */
             /* Check for Valid specifier */
-            if (isValid_specifier(format[input_string_index]) != 1) /* If its not valid specifier */
+            if (isValid_specifier(format[input_string_index]) != NULL) /* If its not valid specifier */
             {   
                 /* Print a message and break the loop */
                 printf("Error not a valid specifier\n");
@@ -95,7 +95,7 @@ int _printf(const char *format, ...)
                 corresponding_argiment = findTheCorresponding_argiment(format[input_string_index], input_string_arg);
 
                 /* Check of the argument data type match thespecifier */
-                if (isArgumentDataType_match_specifier != 1) /* If its not match */
+                if (isArgumentDataType_match_specifier(format[input_string_index], corresponding_argiment) != NULL) /* If its not match */
                 {
                     /* Print a message and break the loop */
                     printf("Error data type mismatch\n");
@@ -107,10 +107,10 @@ int _printf(const char *format, ...)
                     formated_argiment = argimentFormattingAnd_converting(corresponding_argiment);
                     
                     /* Append to the charchter to the buffer */
-                    append_inputString_to_theBuffer(formated_argiment);
+                    appendToCharBuffer(input_string_buffer, format[input_string_index]);
 
                     /* Write the content of the buffer to the main output and break the loop */
-                    write_theBuffer_toStdOutput();
+                    writeToConsole(input_string_buffer);
 
                     /* Incrise the charchter index after the specifier to get the next charchter */
                     input_string_index++;

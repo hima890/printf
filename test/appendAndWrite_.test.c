@@ -27,44 +27,43 @@ char *initializeStringBuffer(int buffer_size)
 }
 
 
-char *appendToStringBuffer(char *buffer, const char *str_to_append)
+char *appendToCharBuffer(char *buffer, char char_to_append)
 {
     /* Vars Dec. */
     size_t buffer_len;
-    size_t str_len;
-    char *new_buffer; /* Pointer to the relocted buffer */
+    char *new_buffer; /* Pointer to the relocated buffer */
 
-    /* Check for buffer and the string */
-    if (buffer == NULL || str_to_append == NULL)
+    /* Check for the buffer */
+    if (buffer == NULL)
     {
-        /* Return the same buffer contect as it is */
+        /* Return the same buffer content as it is */
         return buffer;
     }
 
-    buffer_len = strlen(buffer); /* The buffer lenght */
-    str_len = (strlen(str_to_append) + 1); /* The string lenght pluse the the null-terminator */
+    buffer_len = strlen(buffer); /* The buffer length */
 
-    /*Check if there's enough space to append the string*/ 
-    if (buffer_len + str_len >= strlen(buffer))
+    /* Check if there's enough space to append the character */
+    if (buffer_len + 1 >= strlen(buffer))
     {
-        /* Not enough space, so reallocate the buffer*/
-        size_t new_size = buffer_len + str_len;  /* New buffer size */
-        new_buffer = (char *)realloc(buffer, new_size); /* Assigned the relocted buffer to pionter */
+        /* Not enough space, so reallocate the buffer */
+        size_t new_size = buffer_len + 1;  /* New buffer size */
+        new_buffer = (char *)realloc(buffer, new_size); /* Allocate the relocated buffer */
 
-        /* Check for the relocted buffer */
+        /* Check for the relocated buffer */
         if (new_buffer == NULL)
         {
-            /* If the relocted faild print a message and retunt null */
+            /* If the relocation fails, print a message and return null */
             printf("Error: Memory reallocation failed\n");
             return NULL;
         }
 
-        /* Set the buffer pionter to the new relocted buffer */
+        /* Set the buffer pointer to the new relocated buffer */
         buffer = new_buffer;
     }
 
-    /* Append the string to the buffer*/
-    strcat(buffer, str_to_append);
+    /* Append the character to the buffer */
+    buffer[buffer_len] = char_to_append;
+    buffer[buffer_len + 1] = '\0'; // Null-terminate the string
 
     /* Return the buffer pointer */
     return buffer;
@@ -94,7 +93,7 @@ int main(void)
     string_buffer = initializeStringBuffer(5); /* Use the defind buffor */
     if (string_buffer != NULL)
     {
-        string_buffer = appendToStringBuffer(string_buffer, "Hello, world\n");
+        string_buffer = appendToCharBuffer(string_buffer, 'h');
         if (string_buffer != NULL)
         {
             writeToConsole(string_buffer);

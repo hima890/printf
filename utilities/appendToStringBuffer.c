@@ -12,60 +12,58 @@
  *
  * Description:
  *   This function takes an existing character buffer (allocated using `initializeStringBuffer`)
- *   and appends the specified string to it. It checks for valid input and available space
+ *   and appends the specified charchter to it. It checks for valid input and available space
  *   in the buffer before appending. If there's enough space, the string is concatenated to the
  *   end of the buffer.
  *
- *   If either the `buffer` or `str_to_append` is `NULL`, the function returns the `buffer` as is.
+ *   If the `buffer` is `NULL`, the function returns the `buffer` as is.
  *
- *   If there's insufficient space in the buffer to append the string, you may choose to handle
- *   this situation accordingly. In this example, the function returns `NULL` to indicate an error.
+ *   If there's insufficient space in the buffer to append the character the function relocted the buffer and append the character.
  *
  *   The caller is responsible for managing memory, including freeing the buffer when it is
  *   no longer needed.
  *
  * Return: A pointer to the updated character buffer if the append operation is successful,
- *         or NULL in case of an error (e.g., insufficient space in the buffer).
+ *         or NULL in case of an error in relocted.
  */
 
-char *appendToStringBuffer(char *buffer, const char *str_to_append)
+char *appendToCharBuffer(char *buffer, char char_to_append)
 {
     /* Vars Dec. */
     size_t buffer_len;
-    size_t str_len;
-    char *new_buffer; /* Pointer to the relocted buffer */
+    char *new_buffer; /* Pointer to the relocated buffer */
 
-    /* Check for buffer and the string */
-    if (buffer == NULL || str_to_append == NULL)
+    /* Check for the buffer */
+    if (buffer == NULL)
     {
-        /* Return the same buffer contect as it is */
+        /* Return the same buffer content as it is */
         return buffer;
     }
 
-    size_t buffer_len = strlen(buffer); /* The buffer lenght */
-    size_t str_len = (strlen(str_to_append) + 1); /* The string lenght pluse the the null-terminator */
+    buffer_len = strlen(buffer); /* The buffer length */
 
-    /*Check if there's enough space to append the string*/ 
-    if (buffer_len + str_len >= strlen(buffer))
+    /* Check if there's enough space to append the character */
+    if (buffer_len + 1 >= strlen(buffer))
     {
-        /* Not enough space, so reallocate the buffer*/
-        size_t new_size = buffer_len + str_len;  /* New buffer size */
-        new_buffer = (char *)realloc(buffer, new_size); /* Assigned the relocted buffer to pionter */
+        /* Not enough space, so reallocate the buffer */
+        size_t new_size = buffer_len + 1;  /* New buffer size */
+        new_buffer = (char *)realloc(buffer, new_size); /* Allocate the relocated buffer */
 
-        /* Check for the relocted buffer */
+        /* Check for the relocated buffer */
         if (new_buffer == NULL)
         {
-            /* If the relocted faild print a message and retunt null */
+            /* If the relocation fails, print a message and return null */
             printf("Error: Memory reallocation failed\n");
             return NULL;
         }
 
-        /* Set the buffer pionter to the new relocted buffer */
+        /* Set the buffer pointer to the new relocated buffer */
         buffer = new_buffer;
     }
 
-    /* Append the string to the buffer*/
-    strcat(buffer, str_to_append);
+    /* Append the character to the buffer */
+    buffer[buffer_len] = char_to_append;
+    buffer[buffer_len + 1] = '\0'; // Null-terminate the string
 
     /* Return the buffer pointer */
     return buffer;
