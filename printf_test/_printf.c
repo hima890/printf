@@ -87,7 +87,7 @@ int _printf(const char *format, ...)
         {
             input_string_index++; /* Incrise the charchter index after the "%" to get the specifier */
             /* Check for Valid specifier */
-            if (isValid_specifier(format[input_string_index]) != true) /* If its not valid specifier */
+            if (containsStringSpecifier(format[input_string_index])  != true) /* If its not valid specifier */
             {   
                 /* Print a message and break the loop */
                 printf("Error not a valid specifier\n");
@@ -136,14 +136,13 @@ int _printf(const char *format, ...)
                     else if (format[input_string_index] == 'f')
                     {
                         double value = va_arg(input_string_arg, double);
-                        char formated_argiment = deoubleFormating(value);
+                        char *formated_argiment = floatToString(value);
                         appendToCharBuffer(input_string_buffer, formated_argiment);                    
                     }
                     else if (format[input_string_index] == 's')
                     {
                         char *value = va_arg(input_string_arg, char *);
-                        char formated_argiment = stringFormating(value);
-                        appendToCharBuffer(input_string_buffer, formated_argiment);                       
+                        appendToCharBuffer(input_string_buffer, value);                       
                     }
                 } 
                 else

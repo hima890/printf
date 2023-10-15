@@ -23,34 +23,15 @@
  * Return: true if the string contains valid format specifiers, false otherwise.
 */
 
-bool containsStringSpecifier(const char *input)
+bool containsStringSpecifier(const char input)
 {
-    int loopIndex;
-    int length;
-    if (input == NULL)
+    if (input != '%')
     {
-        /*to handle null input*/
-        
+        /* code */
         return (false);
     }
-
-    length = strlen(input);
-    for (loopIndex = 0; loopIndex < length; loopIndex++)
-    {
-        if (input[loopIndex] == '%')
-        {
-            if ((loopIndex + 1) < length)
-            {
-                char nextChar = input[loopIndex + 1];
-                if (nextChar == 's' || nextChar == 'd' || nextChar == 'f' || nextChar == 'c')
-                {
-                    /* Check for known string specifiers like %s, %d, %f, %c, etc.*/
-                    return (true);
-                }
-            }
-        }
-    }
-
-    /*normal printing goes here*/
-    return (false);
+    
+    return (true);
+    
 }
+

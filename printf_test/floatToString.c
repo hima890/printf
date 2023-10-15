@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "../main.h"
+#include "main.h"
 
 /**
  * floatToString - Converts a floating-point number to a dynamically allocated string.

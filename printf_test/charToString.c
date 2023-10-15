@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "../main.h"
+#include "main.h"
 
 /**
  * charToString - Converts a character to a dynamically allocated string.
