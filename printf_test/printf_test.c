@@ -5,11 +5,16 @@
 int main(void)
 {
     /* code */
+    /* Test the data types*/
+    /*
     _printf("The value : %c\n", 'X');
     _printf("The value : %i\n", 100);
     _printf("The value : %f\n", 100.42);
     _printf("The value : %s\n", "ibrahim");
-    printf("%d\n", _printf("The value : %s\n", "ibrahim"));
-    printf("%% test\n");
+    */
+
+   /*Test the number of characters printed*/
+    printf("%d\n", _printf("A test\n"));
+    printf("%d\n", printf("A test\n"));
     return (0);
 }

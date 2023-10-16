@@ -60,7 +60,7 @@ int _printf(const char *format, ...)
 
     /* Init. the vars valous */
     /* +1 to count the '\0' in the string lenght*/
-    numberOfCharacters_printed = 0;
+    numberOfCharacters_printed = 0; 
     input_string_lenght = (strlen(format) + 1);
     input_string_index = 0;
     input_string_buffer = initializeStringBuffer(BUFFER_SIZE);
@@ -93,7 +93,8 @@ int _printf(const char *format, ...)
             {
                 /* Write the content of the buffer to the main output and break the loop */
                 writeToConsole(input_string_buffer);
-                break;
+                numberOfCharacters_printed = strlen(input_string_buffer);
+                return (numberOfCharacters_printed);
             }
             
             
@@ -174,5 +175,6 @@ int _printf(const char *format, ...)
     free(input_string_buffer);
 
     /* A place holder for the total printed charchter */
-    return (0); 
+    numberOfCharacters_printed = strlen(input_string_buffer);
+    return (numberOfCharacters_printed);   
 }
