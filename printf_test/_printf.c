@@ -153,7 +153,6 @@ int _printf(const char *format, ...)
                         {
                             float value = va_arg(input_string_arg, double);
                             char *formated_argiment = floatToString(value);
-                            printf("%f\n", value);
                             appendToCharBuffer(input_string_buffer, formated_argiment);                    
                         }
                         else if (format[input_string_index] == 's')
