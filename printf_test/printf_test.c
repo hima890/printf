@@ -9,7 +9,7 @@ int main(void)
 
     _printf("The value : %c\n", 'X');
     _printf("The value : %i\n", 100);
-    _printf("The value : %f\n", 100.42);
+    _printf("The value : %f\n", 100.00);
     _printf("The value : %s\n", "ibrahim");
 
     /*Test the number of characters printed
