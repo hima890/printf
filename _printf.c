@@ -55,6 +55,7 @@ int _printf(const char *format, ...)
         {'i', "int"},
         {'f', "float"},
         {'s', "string"},
+        {'d', "integer "},
         {0, NULL} /* Use 0 to indicate the end of the list */
     };
 
@@ -72,6 +73,7 @@ int _printf(const char *format, ...)
     {
         /* code */
         /* Print a message if string is empty */
+       /* printf("Error zero-length gnu_printf format string\n");*/
         return (0);
     }
     
@@ -100,16 +102,23 @@ int _printf(const char *format, ...)
         }
         else /* If a specifier found */
         {
+            /*printf("a specifier found\n");*/
             input_string_index++; /* Incrise the charchter index after the "%" to get the specifier */
+            /*printf("The specifier is :%c\n", format[input_string_index]);*/
 
             if (format[input_string_index] != '%')
             {
                 if (isValidSpecifier(format[input_string_index])  != true) /* If its not valid specifier */
                 {   
-                    break;
+                    /*printf("not valid spicifier\n");*/
+                    appendToCharBuffer(input_string_buffer, "%");
+                    appendToCharBuffer(input_string_buffer, charToString(format[input_string_index]));
                 }
                 else /* If its valid specifier */
                 {
+                    /*printf("'%c' is a valid specifier\n", format[input_string_index]);*/
+                
+
                     /* Initialize dataType_index with -1 to indicate no match */
                     dataType_index = -1;
                     /* Get the corresponding argiment from the argiment list */
@@ -141,11 +150,11 @@ int _printf(const char *format, ...)
                             char *formated_argiment = intToString(value);
                             appendToCharBuffer(input_string_buffer, formated_argiment);
                         }
-                        else if (format[input_string_index] == 'f')
+                        else if (format[input_string_index] == 'd')
                         {
-                            double value = va_arg(input_string_arg, double);
-                            char *formated_argiment = floatToString(value);
-                            appendToCharBuffer(input_string_buffer, formated_argiment);                    
+                            int valuex = va_arg(input_string_arg, int);
+                            char *formated_argiment = intToString(valuex);
+                            appendToCharBuffer(input_string_buffer, formated_argiment);            
                         }
                         else if (format[input_string_index] == 's')
                         {
@@ -155,6 +164,7 @@ int _printf(const char *format, ...)
                     } 
                     else
                     {
+                        /*printf("Unknown specifier: %c\n", format[input_string_index]);*/
                         break;
                     }
                 }
