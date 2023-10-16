@@ -12,10 +12,10 @@ int main(void)
     _printf("The value : %f\n", 100.42);
     _printf("The value : %s\n", "ibrahim");
 
-    /*Test the number of characters printed
+    Test the number of characters printed
      printf("%d\n", _printf("A test\n"));
      printf("%d\n", printf("A test\n"));
-     */
+     
 
     /*
      int _return;
