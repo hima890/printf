@@ -20,18 +20,18 @@
  *
  *   If the input is NULL, the function returns false to handle this case.
  *
- * Return: true if the string contains valid format specifiers, false otherwise.
+ * Return: true if the string contains valid format specifiers,
+ *  false otherwise.
 */
 
 bool containsStringSpecifier(const char input)
 {
-    if (input != '%')
-    {
-        /* code */
-        return (false);
-    }
-    
-    return (true);
-    
+if (input != '%')
+{
+/* code */
+return (false);
+}
+
+return (true);
 }
 
