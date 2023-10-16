@@ -20,5 +20,6 @@ int main(void)
     */
    printf("%%\n");
    _printf("%%\n");
+   printf("Unknown:[%r]\n");
     return (0);
 }

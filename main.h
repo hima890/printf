@@ -4,8 +4,6 @@
 /* Header files goes here */
 #include <stdbool.h>
 
-
-
 /* Defind morcos goes here*/
 #define BUFFER_SIZE 1024
 
@@ -17,12 +15,11 @@ typedef struct {
 } type_list;
 
 
-
 /*Functions prototypes goes here */
 int _printf(const char *format, ...);
 char *appendToCharBuffer(char *buffer, const char *str_to_append);
 char *initializeStringBuffer(int buffer_size);
-bool containsStringSpecifier(const char input);
+bool isValidSpecifier(const char specifier);
 char *charToString(char character);
 char *intToString(int number);
 char *floatToString(float number);
