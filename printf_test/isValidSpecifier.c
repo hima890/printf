@@ -18,6 +18,7 @@
  * Return: true if the specifier is valid, false otherwise.
 */
 
+<<<<<<< HEAD
 bool isValidSpecifier(const char specifier)
 {
 int loopIndex;
@@ -28,6 +29,18 @@ type_list specifiers[] = {
 {'s', "string"},
 {0, NULL} /* Use 0 to indicate the end of the list */
 };
+=======
+bool isValidSpecifier(const char specifier){
+    int loopIndex;
+    type_list specifiers[] = {
+        {'c', "char"},
+        {'i', "int"},
+        {'f', "float"},
+        {'s', "string"},
+        {'d', "integer "},
+        {0, NULL} /* Use 0 to indicate the end of the list */
+    };
+>>>>>>> ee9a6fe3b151fbf1ef2166e8aee0ac15c333a53f
 
 for (loopIndex = 0; specifiers[loopIndex].theSpicifier != 0; loopIndex++)
 {
