@@ -151,7 +151,7 @@ int _printf(const char *format, ...)
                         }
                         else if (format[input_string_index] == 'f')
                         {
-                            double value = va_arg(input_string_arg, double);
+                            float value = va_arg(input_string_arg, double);
                             char *formated_argiment = floatToString(value);
                             appendToCharBuffer(input_string_buffer, formated_argiment);                    
                         }

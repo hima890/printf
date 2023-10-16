@@ -115,7 +115,7 @@ int _printf(const char *format, ...)
                 }
                 else /* If its valid specifier */
                 {
-                    printf("'%c' is a valid specifier\n", format[input_string_index]);
+                    /*printf("'%c' is a valid specifier\n", format[input_string_index]);*/
                 
 
                     /* Initialize dataType_index with -1 to indicate no match */
@@ -151,8 +151,10 @@ int _printf(const char *format, ...)
                         }
                         else if (format[input_string_index] == 'f')
                         {
-                            double value = va_arg(input_string_arg, double);
+                            float value = va_arg(input_string_arg, double);
+                        
                             char *formated_argiment = floatToString(value);
+                            printf("%f\n", value);
                             appendToCharBuffer(input_string_buffer, formated_argiment);                    
                         }
                         else if (format[input_string_index] == 's')
