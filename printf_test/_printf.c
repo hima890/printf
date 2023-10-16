@@ -42,15 +42,25 @@ int _printf(const char *format, ...)
 {
     /* Dec. the vars names and types */
     /* The user sting input is stored in "input_string" */
+    int numberOfCharacters_printed;
     int input_string_lenght;
     int input_string_index;
     char *input_string_buffer; /* Pointer to the buffer */
-    /* int typesLoop_index;  Index for types structc loop */
-    /* int dataType_index; Index for the types structc */
+    int typesLoop_index; /* Index for types structc loop */
+    int dataType_index; /* Index for the types structc */
     va_list input_string_arg;/* Dec. the aruments list */
+    /* Define an array of specifiers and their associated data types */
+    type_list types[] = {
+        {'c', "char"},
+        {'i', "int"},
+        {'f', "float"},
+        {'s', "string"},
+        {0, NULL} /* Use 0 to indicate the end of the list */
+    };
 
     /* Init. the vars valous */
     /* +1 to count the '\0' in the string lenght*/
+    numberOfCharacters_printed = 0;
     input_string_lenght = (strlen(format) + 1);
     input_string_index = 0;
     input_string_buffer = initializeStringBuffer(BUFFER_SIZE);
@@ -99,10 +109,59 @@ int _printf(const char *format, ...)
                 printf("Error '%c' not a valid specifier\n", format[input_string_index]);
                 break;
             }
-            else
+            else /* If its valid specifier */
             {
                 printf("'%c' is a valid specifier\n", format[input_string_index]);
+            
 
+                /* Initialize dataType_index with -1 to indicate no match */
+                dataType_index = -1;
+                /* Get the corresponding argiment from the argiment list */
+                /* Initialize dataType_index with -1 to indicate no match */
+                dataType_index = -1;
+
+                /* Loop to find the data type associated with the specifier */
+                for (typesLoop_index = 0; types[typesLoop_index].theSpicifier != 0; typesLoop_index++)
+                {
+                    if (format[input_string_index] == types[typesLoop_index].theSpicifier)
+                    {
+                        dataType_index = typesLoop_index;
+                        break;
+                    }
+                }
+
+                if (dataType_index != -1)
+                {
+                    /* Process the argument based on the determined data type */
+                    if (format[input_string_index] == 'c')
+                    {
+                        char value = va_arg(input_string_arg, int);
+                        char *formated_argiment = charToString(value);
+                        appendToCharBuffer(input_string_buffer, formated_argiment);
+                    }
+                    else if (format[input_string_index] == 'i')
+                    {
+                        int value = va_arg(input_string_arg, int);
+                        char *formated_argiment = intToString(value);
+                        appendToCharBuffer(input_string_buffer, formated_argiment);
+                    }
+                    else if (format[input_string_index] == 'f')
+                    {
+                        double value = va_arg(input_string_arg, double);
+                        char *formated_argiment = floatToString(value);
+                        appendToCharBuffer(input_string_buffer, formated_argiment);                    
+                    }
+                    else if (format[input_string_index] == 's')
+                    {
+                        char *value = va_arg(input_string_arg, char *);
+                        appendToCharBuffer(input_string_buffer, value);                       
+                    }
+                } 
+                else
+                {
+                    printf("Unknown specifier: %c\n", format[input_string_index]);
+                    break;
+                }
             }
             
         }
@@ -110,7 +169,6 @@ int _printf(const char *format, ...)
         input_string_index++; /* Incrise the charchter index after the "%" to get the specifier */
 
     }
-    
     /* Free all the pionter */
     va_end(input_string_arg);
     free(input_string_buffer);
