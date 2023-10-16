@@ -104,67 +104,76 @@ int _printf(const char *format, ...)
             printf("a specifier found\n");
             input_string_index++; /* Incrise the charchter index after the "%" to get the specifier */
             printf("The specifier is :%c\n", format[input_string_index]);
-            if (isValidSpecifier(format[input_string_index])  != true) /* If its not valid specifier */
-            {   
-                /* Print a message and break the loop */
-                printf("Error '%c' not a valid specifier\n", format[input_string_index]);
-                break;
-            }
-            else /* If its valid specifier */
+
+            if (format[input_string_index] != '%')
             {
-                printf("'%c' is a valid specifier\n", format[input_string_index]);
-            
-
-                /* Initialize dataType_index with -1 to indicate no match */
-                dataType_index = -1;
-                /* Get the corresponding argiment from the argiment list */
-                /* Initialize dataType_index with -1 to indicate no match */
-                dataType_index = -1;
-
-                /* Loop to find the data type associated with the specifier */
-                for (typesLoop_index = 0; types[typesLoop_index].theSpicifier != 0; typesLoop_index++)
+                if (isValidSpecifier(format[input_string_index])  != true) /* If its not valid specifier */
+                {   
+                    /* Print a message and break the loop */
+                    printf("Error '%c' not a valid specifier\n", format[input_string_index]);
+                    break;
+                }
+                else /* If its valid specifier */
                 {
-                    if (format[input_string_index] == types[typesLoop_index].theSpicifier)
+                    printf("'%c' is a valid specifier\n", format[input_string_index]);
+                
+
+                    /* Initialize dataType_index with -1 to indicate no match */
+                    dataType_index = -1;
+                    /* Get the corresponding argiment from the argiment list */
+                    /* Initialize dataType_index with -1 to indicate no match */
+                    dataType_index = -1;
+
+                    /* Loop to find the data type associated with the specifier */
+                    for (typesLoop_index = 0; types[typesLoop_index].theSpicifier != 0; typesLoop_index++)
                     {
-                        dataType_index = typesLoop_index;
+                        if (format[input_string_index] == types[typesLoop_index].theSpicifier)
+                        {
+                            dataType_index = typesLoop_index;
+                            break;
+                        }
+                    }
+
+                    if (dataType_index != -1)
+                    {
+                        /* Process the argument based on the determined data type */
+                        if (format[input_string_index] == 'c')
+                        {
+                            char value = va_arg(input_string_arg, int);
+                            char *formated_argiment = charToString(value);
+                            appendToCharBuffer(input_string_buffer, formated_argiment);
+                        }
+                        else if (format[input_string_index] == 'i')
+                        {
+                            int value = va_arg(input_string_arg, int);
+                            char *formated_argiment = intToString(value);
+                            appendToCharBuffer(input_string_buffer, formated_argiment);
+                        }
+                        else if (format[input_string_index] == 'f')
+                        {
+                            double value = va_arg(input_string_arg, double);
+                            char *formated_argiment = floatToString(value);
+                            appendToCharBuffer(input_string_buffer, formated_argiment);                    
+                        }
+                        else if (format[input_string_index] == 's')
+                        {
+                            char *value = va_arg(input_string_arg, char *);
+                            appendToCharBuffer(input_string_buffer, value);                       
+                        }
+                    } 
+                    else
+                    {
+                        printf("Unknown specifier: %c\n", format[input_string_index]);
                         break;
                     }
                 }
-
-                if (dataType_index != -1)
-                {
-                    /* Process the argument based on the determined data type */
-                    if (format[input_string_index] == 'c')
-                    {
-                        char value = va_arg(input_string_arg, int);
-                        char *formated_argiment = charToString(value);
-                        appendToCharBuffer(input_string_buffer, formated_argiment);
-                    }
-                    else if (format[input_string_index] == 'i')
-                    {
-                        int value = va_arg(input_string_arg, int);
-                        char *formated_argiment = intToString(value);
-                        appendToCharBuffer(input_string_buffer, formated_argiment);
-                    }
-                    else if (format[input_string_index] == 'f')
-                    {
-                        double value = va_arg(input_string_arg, double);
-                        char *formated_argiment = floatToString(value);
-                        appendToCharBuffer(input_string_buffer, formated_argiment);                    
-                    }
-                    else if (format[input_string_index] == 's')
-                    {
-                        char *value = va_arg(input_string_arg, char *);
-                        appendToCharBuffer(input_string_buffer, value);                       
-                    }
-                } 
-                else
-                {
-                    printf("Unknown specifier: %c\n", format[input_string_index]);
-                    break;
-                }
-            }
             
+            }
+            else
+            {
+                /* Append to the charchter to the buffer */
+                appendToCharBuffer(input_string_buffer, "%");
+            }
         }
 
         input_string_index++; /* Incrise the charchter index after the "%" to get the specifier */

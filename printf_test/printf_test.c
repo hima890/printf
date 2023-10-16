@@ -13,8 +13,12 @@ int main(void)
     _printf("The value : %s\n", "ibrahim");
     */
 
-   /*Test the number of characters printed*/
+   /*Test the number of characters printed
     printf("%d\n", _printf("A test\n"));
     printf("%d\n", printf("A test\n"));
+
+    */
+   printf("%%\n");
+   _printf("%%\n");
     return (0);
 }
