@@ -10,7 +10,7 @@ int main(void)
     _printf("The value : %i\n", 100);
     _printf("The value : %d\n", 79);
     _printf("The value : %s\n", "ibrahim");
-
+    _printf("Let's try to printf a simple sentence.\n");
     /*Test the number of characters printed
      printf("%d\n", _printf("A test\n"));
      printf("%d\n", printf("A test\n"));
