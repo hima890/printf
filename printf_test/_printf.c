@@ -152,8 +152,8 @@ int _printf(const char *format, ...)
                         }
                         else if (format[input_string_index] == 'd')
                         {
-                            int value = va_arg(input_string_arg, int);
-                            char *formated_argiment = intToString(value);
+                            int valuex = va_arg(input_string_arg, int);
+                            char *formated_argiment = intToString(valuex);
                             appendToCharBuffer(input_string_buffer, formated_argiment);            
                         }
                         else if (format[input_string_index] == 's')
