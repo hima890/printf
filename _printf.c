@@ -6,7 +6,6 @@
 #include <stdarg.h>
 #include "main.h"
 
-
 /**
  * _printf - A custom printf function that handles formatted string output.
  *
@@ -36,7 +35,7 @@
  *   the formatted result.
  *
  * Return: None (void)
-*/
+ */
 
 int _printf(const char *format, ...)
 {
@@ -46,9 +45,9 @@ int _printf(const char *format, ...)
     int input_string_lenght;
     int input_string_index;
     char *input_string_buffer; /* Pointer to the buffer */
-    int typesLoop_index; /* Index for types structc loop */
-    int dataType_index; /* Index for the types structc */
-    va_list input_string_arg;/* Dec. the aruments list */
+    int typesLoop_index;       /* Index for types structc loop */
+    int dataType_index;        /* Index for the types structc */
+    va_list input_string_arg;  /* Dec. the aruments list */
     /* Define an array of specifiers and their associated data types */
     type_list types[] = {
         {'c', "char"},
@@ -61,7 +60,7 @@ int _printf(const char *format, ...)
 
     /* Init. the vars valous */
     /* +1 to count the '\0' in the string lenght*/
-    numberOfCharacters_printed = 0; 
+    numberOfCharacters_printed = 0;
     input_string_lenght = (strlen(format) + 1);
     input_string_index = 0;
     input_string_buffer = initializeStringBuffer(BUFFER_SIZE);
@@ -69,18 +68,14 @@ int _printf(const char *format, ...)
     /* The variadic function set up */
     va_start(input_string_arg, format);
 
-    if (input_string_lenght == 0 )
+    if (input_string_lenght == 0)
     {
         /* code */
         /* Print a message if string is empty */
-<<<<<<< HEAD
-        printf("Error zero-length gnu_printf format string\n");
-=======
-       /* printf("Error zero-length gnu_printf format string\n");*/
->>>>>>> ee9a6fe3b151fbf1ef2166e8aee0ac15c333a53f
+        /* printf("Error zero-length gnu_printf format string\n");*/
         return (0);
     }
-    
+
     /* Loop throght the charchters of the input_string */
     while (input_string_index < input_string_lenght)
     {
@@ -101,41 +96,24 @@ int _printf(const char *format, ...)
                 numberOfCharacters_printed = strlen(input_string_buffer);
                 return (numberOfCharacters_printed);
             }
-            
-            
         }
         else /* If a specifier found */
         {
-<<<<<<< HEAD
-            printf("a specifier found\n");
-            input_string_index++; /* Incrise the charchter index after the "%" to get the specifier */
-            printf("The specifier is :%c\n", format[input_string_index]);
-=======
             /*printf("a specifier found\n");*/
             input_string_index++; /* Incrise the charchter index after the "%" to get the specifier */
             /*printf("The specifier is :%c\n", format[input_string_index]);*/
->>>>>>> ee9a6fe3b151fbf1ef2166e8aee0ac15c333a53f
 
             if (format[input_string_index] != '%')
             {
-                if (isValidSpecifier(format[input_string_index])  != true) /* If its not valid specifier */
-                {   
-<<<<<<< HEAD
-                    printf("not valid spicifier\n");
-=======
+                if (isValidSpecifier(format[input_string_index]) != true) /* If its not valid specifier */
+                {
                     /*printf("not valid spicifier\n");*/
->>>>>>> ee9a6fe3b151fbf1ef2166e8aee0ac15c333a53f
                     appendToCharBuffer(input_string_buffer, "%");
                     appendToCharBuffer(input_string_buffer, charToString(format[input_string_index]));
                 }
                 else /* If its valid specifier */
                 {
-<<<<<<< HEAD
-                    printf("'%c' is a valid specifier\n", format[input_string_index]);
-=======
                     /*printf("'%c' is a valid specifier\n", format[input_string_index]);*/
->>>>>>> ee9a6fe3b151fbf1ef2166e8aee0ac15c333a53f
-                
 
                     /* Initialize dataType_index with -1 to indicate no match */
                     dataType_index = -1;
@@ -170,33 +148,22 @@ int _printf(const char *format, ...)
                         }
                         else if (format[input_string_index] == 'd')
                         {
-<<<<<<< HEAD
                             float value = va_arg(input_string_arg, double);
                             char *formated_argiment = floatToString(value);
-                            appendToCharBuffer(input_string_buffer, formated_argiment);                    
-=======
-                            int valuex = va_arg(input_string_arg, int);
-                            char *formated_argiment = intToString(valuex);
-                            appendToCharBuffer(input_string_buffer, formated_argiment);            
->>>>>>> ee9a6fe3b151fbf1ef2166e8aee0ac15c333a53f
+                            appendToCharBuffer(input_string_buffer, formated_argiment);
                         }
                         else if (format[input_string_index] == 's')
                         {
                             char *value = va_arg(input_string_arg, char *);
-                            appendToCharBuffer(input_string_buffer, value);                       
+                            appendToCharBuffer(input_string_buffer, value);
                         }
-                    } 
+                    }
                     else
                     {
-<<<<<<< HEAD
-                        printf("Unknown specifier: %c\n", format[input_string_index]);
-=======
                         /*printf("Unknown specifier: %c\n", format[input_string_index]);*/
->>>>>>> ee9a6fe3b151fbf1ef2166e8aee0ac15c333a53f
                         break;
                     }
                 }
-            
             }
             else
             {
@@ -206,7 +173,6 @@ int _printf(const char *format, ...)
         }
 
         input_string_index++; /* Incrise the charchter index after the "%" to get the specifier */
-
     }
     /* Free all the pionter */
     va_end(input_string_arg);
@@ -214,5 +180,5 @@ int _printf(const char *format, ...)
 
     /* A place holder for the total printed charchter */
     numberOfCharacters_printed = strlen(input_string_buffer);
-    return (numberOfCharacters_printed);   
+    return (numberOfCharacters_printed);
 }

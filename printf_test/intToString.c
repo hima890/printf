@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <../main.h>
+#include "main.h"
 
 /**
  * intToString - Converts an integer to a dynamically allocated string.
