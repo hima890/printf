@@ -42,7 +42,6 @@ char *appendToCharBuffer(char *buffer, const char *str_to_append)
 
     if (new_buffer == NULL)
     {
-        printf("Error: Memory reallocation failed\n");
         return NULL;
     }
 

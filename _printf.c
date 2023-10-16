@@ -72,7 +72,6 @@ int _printf(const char *format, ...)
     {
         /* code */
         /* Print a message if string is empty */
-        printf("Error zero-length gnu_printf format string\n");
         return (0);
     }
     
@@ -101,23 +100,16 @@ int _printf(const char *format, ...)
         }
         else /* If a specifier found */
         {
-            printf("a specifier found\n");
             input_string_index++; /* Incrise the charchter index after the "%" to get the specifier */
-            printf("The specifier is :%c\n", format[input_string_index]);
 
             if (format[input_string_index] != '%')
             {
                 if (isValidSpecifier(format[input_string_index])  != true) /* If its not valid specifier */
                 {   
-                    /* Print a message and break the loop */
-                    printf("Error '%c' not a valid specifier\n", format[input_string_index]);
                     break;
                 }
                 else /* If its valid specifier */
                 {
-                    printf("'%c' is a valid specifier\n", format[input_string_index]);
-                
-
                     /* Initialize dataType_index with -1 to indicate no match */
                     dataType_index = -1;
                     /* Get the corresponding argiment from the argiment list */
@@ -163,7 +155,6 @@ int _printf(const char *format, ...)
                     } 
                     else
                     {
-                        printf("Unknown specifier: %c\n", format[input_string_index]);
                         break;
                     }
                 }

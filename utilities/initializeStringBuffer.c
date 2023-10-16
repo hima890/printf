@@ -30,7 +30,6 @@ char *initializeStringBuffer(int buffer_size)
     if (buffer_size <= 0)
     {
         /* Handle invalid buffer size */
-        printf("Error invalid buffer size\n");
         return NULL;
     }
 
