@@ -55,6 +55,7 @@ int _printf(const char *format, ...)
         {'i', "int"},
         {'f', "float"},
         {'s', "string"},
+        {'d', "integer "},
         {0, NULL} /* Use 0 to indicate the end of the list */
     };
 
@@ -149,11 +150,11 @@ int _printf(const char *format, ...)
                             char *formated_argiment = intToString(value);
                             appendToCharBuffer(input_string_buffer, formated_argiment);
                         }
-                        else if (format[input_string_index] == 'f')
+                        else if (format[input_string_index] == 'd')
                         {
-                            float value = va_arg(input_string_arg, double);
-                            char *formated_argiment = floatToString(value);
-                            appendToCharBuffer(input_string_buffer, formated_argiment);                    
+                            int value = va_arg(input_string_arg, int);
+                            char *formated_argiment = intToString(value);
+                            appendToCharBuffer(input_string_buffer, formated_argiment);            
                         }
                         else if (format[input_string_index] == 's')
                         {

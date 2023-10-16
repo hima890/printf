@@ -23,6 +23,7 @@ bool isValidSpecifier(const char specifier){
         {'i', "int"},
         {'f', "float"},
         {'s', "string"},
+        {'d', "integer "},
         {0, NULL} /* Use 0 to indicate the end of the list */
     };
 
