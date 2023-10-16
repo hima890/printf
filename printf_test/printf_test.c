@@ -5,6 +5,6 @@
 int main(void)
 {
     /* code */
-    _printf("Ibrahim");
+    _printf("abcd%nsdjcnw\n");
     return (0);
 }

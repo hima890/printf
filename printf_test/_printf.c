@@ -45,11 +45,9 @@ int _printf(const char *format, ...)
     int input_string_lenght;
     int input_string_index;
     char *input_string_buffer; /* Pointer to the buffer */
-    void *formated_argiment; /* Pointer To the  formated argiment */
-    int typesLoop_index; /* Index for types structc loop */
-    int dataType_index; /* Index for the types structc */
-    int matchingFlag;
-    va_list input_string_arg; /* Dec. the aruments list */
+    /* int typesLoop_index;  Index for types structc loop */
+    /* int dataType_index; Index for the types structc */
+    va_list input_string_arg;/* Dec. the aruments list */
 
     /* Init. the vars valous */
     /* +1 to count the '\0' in the string lenght*/
@@ -60,6 +58,14 @@ int _printf(const char *format, ...)
     /* The variadic function set up */
     va_start(input_string_arg, format);
 
+    if (input_string_lenght == 0 )
+    {
+        /* code */
+        /* Print a message if string is empty */
+        printf("Error zero-length gnu_printf format string\n");
+        return (0);
+    }
+    
     /* Loop throght the charchters of the input_string */
     while (input_string_index < input_string_lenght)
     {
@@ -70,8 +76,7 @@ int _printf(const char *format, ...)
             if (format[input_string_index] != '\0')
             {
                 /* Append to the charchter to the buffer */
-                appendToCharBuffer(input_string_buffer, format[input_string_index]);
-            
+                appendToCharBuffer(input_string_buffer, charToString(format[input_string_index]));
             }
             /* Check if its the end of the input string */
             else if (format[input_string_index] == '\0')
@@ -85,91 +90,31 @@ int _printf(const char *format, ...)
         }
         else /* If a specifier found */
         {
+            printf("a specifier found\n");
             input_string_index++; /* Incrise the charchter index after the "%" to get the specifier */
-            /* Check for Valid specifier */
-            if (containsStringSpecifier(format[input_string_index])  != true) /* If its not valid specifier */
+            printf("The specifier is :%c\n", format[input_string_index]);
+            if (isValidSpecifier(format[input_string_index])  != true) /* If its not valid specifier */
             {   
                 /* Print a message and break the loop */
-                printf("Error not a valid specifier\n");
+                printf("Error '%c' not a valid specifier\n", format[input_string_index]);
                 break;
             }
-            else /* If its valid specifier */
+            else
             {
-                /* Get the corresponding argiment from the argiment list */
-                /* Define an array of specifiers and their associated data types */
-                type_list types[] = {
-                    {'c', "char"},
-                    {'i', "int"},
-                    {'f', "float"},
-                    {'s', "string"},
-                    {0, NULL} /* Use 0 to indicate the end of the list */
-                };
-
-                /* Initialize dataType_index with -1 to indicate no match */
-                dataType_index = -1;
-
-                /* Loop to find the data type associated with the specifier */
-                for (typesLoop_index = 0; types[typesLoop_index].theSpicifier != 0; typesLoop_index++)
-                {
-                    if (format[input_string_index] == types[typesLoop_index].theSpicifier)
-                    {
-                        dataType_index = typesLoop_index;
-                        break;
-                    }
-                }
-
-                if (dataType_index != -1)
-                {
-                    /* Process the argument based on the determined data type */
-                    if (format[input_string_index] == 'c')
-                    {
-                        char value = va_arg(input_string_arg, char);
-                        char *formated_argiment = charToString(value);
-                        appendToCharBuffer(input_string_buffer, formated_argiment);
-                    }
-                    else if (format[input_string_index] == 'i')
-                    {
-                        int value = va_arg(input_string_arg, int);
-                        char *formated_argiment = intToString(value);
-                        appendToCharBuffer(input_string_buffer, formated_argiment);
-                    }
-                    else if (format[input_string_index] == 'f')
-                    {
-                        double value = va_arg(input_string_arg, double);
-                        char *formated_argiment = floatToString(value);
-                        appendToCharBuffer(input_string_buffer, formated_argiment);                    
-                    }
-                    else if (format[input_string_index] == 's')
-                    {
-                        char *value = va_arg(input_string_arg, char *);
-                        appendToCharBuffer(input_string_buffer, value);                       
-                    }
-                } 
-                else
-                {
-                    printf("Unknown specifier: %c\n", format[input_string_index]);
-                    break;
-                }
-
-
-                /* Write the content of the buffer to the main output and break the loop */
-                writeToConsole(input_string_buffer);
-
-                /* Incrise the charchter index after the specifier to get the next charchter */
-                input_string_index++;
+                printf("'%c' is a valid specifier\n", format[input_string_index]);
 
             }
             
         }
-        
+
+        input_string_index++; /* Incrise the charchter index after the "%" to get the specifier */
+
     }
     
     /* Free all the pionter */
     va_end(input_string_arg);
     free(input_string_buffer);
 
-    /* Print a message if string is empty */
-    printf("Error zero-length gnu_printf format string\n");
     /* A place holder for the total printed charchter */
     return (0); 
 }
