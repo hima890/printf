@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "../main.h"
+#include "main.h"
 
 /**
  * appendToStringBuffer - Appends a string to an existing character buffer.
@@ -42,7 +42,6 @@ char *appendToCharBuffer(char *buffer, const char *str_to_append)
 
     if (new_buffer == NULL)
     {
-        printf("Error: Memory reallocation failed\n");
         return NULL;
     }
 

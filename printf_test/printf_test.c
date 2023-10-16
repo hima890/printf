@@ -18,8 +18,12 @@ int main(void)
     printf("%d\n", printf("A test\n"));
 
     */
-   printf("%%\n");
-   _printf("%%\n");
-   printf("Unknown:[%r]\n");
+
+   int _return;
+   _return = printf("Unknown:[%v]\n");
+   printf("%d\n", _return);
+
+    _return = _printf("Unknown:[%v]\n");
+    printf("%d\n", _return);
     return (0);
 }

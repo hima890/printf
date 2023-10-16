@@ -3,6 +3,19 @@
 #include "main.h"
 
 
+/**
+ * isValidSpecifier - Checks if a specifier character is valid.
+ *
+ * @specifier: The specifier character to be validated.
+ *
+ * Description:
+ *   This function checks if the given specifier character is valid. It compares
+ *   the character against a list of valid specifiers and returns true if a match
+ *   is found, indicating that the specifier is valid.
+ *
+ * Return: true if the specifier is valid, false otherwise.
+*/
+
 bool isValidSpecifier(const char specifier){
     int loopIndex;
     type_list specifiers[] = {

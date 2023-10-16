@@ -21,13 +21,56 @@
 */
 
 char *intToString(int number) {
-    char* result = (char*)malloc(12); /* Assuming a maximum of 12 characters for an int */
+    /* Determine the length of the integer when converted to a string */
+    int temp = number;
+    int length = 0;
+    char *result;
+    int loopIndex;
+
+    if (temp == 0)
+    {
+        length = 1;  /* Special case for zero */
+    } else
+    {
+        while (temp != 0)
+        {
+            temp /= 10;
+            length++;
+        }
+    }
+
+    /* Allocate memory for the string (including space for null-terminator) */
+    result = (char *)malloc(length + 1);
     if (result == NULL)
     {
         return (NULL); /* Memory allocation failed */
     }
 
-    snprintf(result, 12, "%d", number); /* Convert int to string */
+    /* Convert the integer to a string manually */
+    result[length] = '\0'; /* Null-terminate the string */
+    if (number == 0)
+    {
+        result[0] = '0'; /* Special case for zero */
+    }
+    else
+    {
+        int isNegative = 0;
+        if (number < 0)
+        {
+            isNegative = 1;
+            number = -number;
+        }
+        for
+        (loopIndex = length - 1; loopIndex >= 0; loopIndex--)
+        {
+            result[loopIndex] = (char)((number % 10) + '0');
+            number /= 10;
+        }
+        if (isNegative)
+        {
+            result[0] = '-'; /* Add a minus sign for negative numbers */
+        }
+    }
 
     return (result);
 }

@@ -109,9 +109,9 @@ int _printf(const char *format, ...)
             {
                 if (isValidSpecifier(format[input_string_index])  != true) /* If its not valid specifier */
                 {   
-                    /* Print a message and break the loop */
-                    printf("Error '%c' not a valid specifier\n", format[input_string_index]);
-                    break;
+                    printf("not valid spicifier\n");
+                    appendToCharBuffer(input_string_buffer, "%");
+                    appendToCharBuffer(input_string_buffer, charToString(format[input_string_index]));
                 }
                 else /* If its valid specifier */
                 {

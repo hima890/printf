@@ -40,6 +40,6 @@ void writeToConsole(const char *buffer)
     else
     {
         /* Write un error message */
-        printf("Error empty buffer\n");
+        /* printf("Error empty buffer\n"); */
     }
 }
