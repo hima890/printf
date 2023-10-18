@@ -23,9 +23,17 @@ int main(void)
     printf("Length:[%d, %i]\n", len2, len2);
     */
 
-   
+   /*
     _printf("Negative:[%i]\n", -110);
     printf("Negative:[%d]\n", -762534);
+    
+
+   printf("%s", NULL);
+   _printf("%s", NULL);
+    */
+   int a = printf(NULL);
+   printf("%d", a);
+   _printf(NULL);
 /*
     _printf("Unsigned:[%u]\n", ui);
     printf("Unsigned:[%u]\n", ui);

@@ -58,13 +58,17 @@ int _printf(const char *format, ...)
         {0, NULL} /* Use 0 to indicate the end of the list */
     };
 
+    if (format == NULL) {
+        printf("Error: NULL format string\n");
+        return (-1);
+    }
     /* Init. the vars valous */
     /* +1 to count the '\0' in the string lenght*/
     numberOfCharacters_printed = 0;
     input_string_lenght = (strlen(format) + 1);
     input_string_index = 0;
     input_string_buffer = initializeStringBuffer(BUFFER_SIZE);
-
+    
     /* The variadic function set up */
     va_start(input_string_arg, format);
 
@@ -154,8 +158,16 @@ int _printf(const char *format, ...)
                         }
                         else if (format[input_string_index] == 's')
                         {
-                            char *value = va_arg(input_string_arg, char *);
-                            appendToCharBuffer(input_string_buffer, value);
+                            if (va_arg(input_string_arg, char *) == NULL)
+                            {
+                                appendToCharBuffer(input_string_buffer, "(null)");
+                            }
+                            else
+                            {
+                                char *value = va_arg(input_string_arg, char *);
+                                appendToCharBuffer(input_string_buffer, value);
+                            }
+                            
                         }
                     }
                     else
