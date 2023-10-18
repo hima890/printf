@@ -158,14 +158,14 @@ int _printf(const char *format, ...)
                         }
                         else if (format[input_string_index] == 's')
                         {
-                            if (va_arg(input_string_arg, char *) == NULL)
+                            char *charchter_holder = va_arg(input_string_arg, char *);
+                            if (charchter_holder == NULL)
                             {
                                 appendToCharBuffer(input_string_buffer, "(null)");
                             }
                             else
                             {
-                                char *value = va_arg(input_string_arg, char *);
-                                appendToCharBuffer(input_string_buffer, value);
+                                appendToCharBuffer(input_string_buffer, charchter_holder);
                             }
                             
                         }
