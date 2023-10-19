@@ -179,7 +179,7 @@ int _printf(const char *format, ...)
                             {
                                 appendToCharBuffer(input_string_buffer, charchter_holder);
                             }
-                            free(charchter_holder);
+                            
                         }
                     }
                     else
