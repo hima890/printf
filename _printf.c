@@ -96,7 +96,7 @@ int _printf(const char *format, ...)
             {
                 /* Write the content of the buffer to the main output and break the loop */
                 writeToConsole(input_string_buffer);
-                numberOfCharacters_printed = strlen(input_string_buffer) + 1;
+                numberOfCharacters_printed = strlen(input_string_buffer);
                 return (numberOfCharacters_printed);
             }
         }
