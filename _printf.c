@@ -138,7 +138,7 @@ int _printf(const char *format, ...)
                         {
                             int value = va_arg(input_string_arg, int);
                             char *formated_argiment;
-                            if (value > 0)
+                            if (value >= 0)
                             {
                                 formated_argiment = intToString(value);
                             }
@@ -152,7 +152,7 @@ int _printf(const char *format, ...)
                         {
                             int value = va_arg(input_string_arg, int);
                             char *formated_argiment;
-                            if (value > 0)
+                            if (value >= 0)
                             {
                                 formated_argiment = intToString(value);
                             }
