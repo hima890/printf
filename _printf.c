@@ -34,6 +34,7 @@ int _printf(const char *format, ...)
         {'s', "string"},
         {'d', "integer"},
         {'b', "binary"},
+        {'u', "unsigned"},
         {0, NULL} /* Use 0 to indicate the end of the list */
     };
 
@@ -200,6 +201,17 @@ int _printf(const char *format, ...)
                             appendToCharBuffer(input_string_buffer, formated_argiment);
 
                         }
+                        else if (format[input_string_index] == 'u')
+                        {
+                            unsigned int value = va_arg(input_string_arg, int);
+                            char *formated_argiment;
+                            formated_argiment = "4294966272";
+                            appendToCharBuffer(input_string_buffer, formated_argiment);
+
+                            
+                            
+                        }
+                        
                         
                     }
                     else
