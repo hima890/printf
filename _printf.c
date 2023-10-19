@@ -66,7 +66,7 @@ int _printf(const char *format, ...)
     numberOfCharacters_printed = 0;
     input_string_lenght = (strlen(format) + 1);
     input_string_index = 0;
-    input_string_buffer = initializeStringBuffer(BUFFER_SIZE);
+    
     
     /* The variadic function set up */
     va_start(input_string_arg, format);
@@ -76,10 +76,9 @@ int _printf(const char *format, ...)
         /* code */
         /* Print a message if string is empty */
         /* printf("Error zero-length gnu_printf format string\n");*/
-        free(input_string_buffer);
         return (0);
     }
-
+    input_string_buffer = initializeStringBuffer(BUFFER_SIZE);
     /* Loop throght the charchters of the input_string */
     while (input_string_index < input_string_lenght)
     {
@@ -155,21 +154,18 @@ int _printf(const char *format, ...)
                             }
                             
                             appendToCharBuffer(input_string_buffer, formated_argiment);
-                            free(formated_argiment);
                         }
                         else if (format[input_string_index] == 'i')
                         {
                             int value = va_arg(input_string_arg, int);
                             char *formated_argiment = intToString(value);
                             appendToCharBuffer(input_string_buffer, formated_argiment);
-                            free(formated_argiment);
                         }
                         else if (format[input_string_index] == 'd')
                         {
                             int value = va_arg(input_string_arg, int);
                             char *formated_argiment = intToString(value);
                             appendToCharBuffer(input_string_buffer, formated_argiment);
-                            free(formated_argiment);
                         }
                         else if (format[input_string_index] == 's')
                         {

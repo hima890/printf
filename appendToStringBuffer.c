@@ -50,6 +50,7 @@ char *appendToCharBuffer(char *buffer, const char *str_to_append)
 
 	if (new_buffer == NULL)
 	{
+		free(new_buffer);
 		return (NULL);
 	}
 
