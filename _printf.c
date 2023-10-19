@@ -204,18 +204,17 @@ int _printf(const char *format, ...)
                         else if (format[input_string_index] == 'u')
                         {
                             char *formated_argiment;
-                            int value = va_arg(input_string_arg, int);
-                            if (value < 0)
+                            unsigned value = va_arg(input_string_arg, int);
+                            if (value <= INT_MAX)
                             {
-                                formated_argiment = "4294966272";
-                                appendToCharBuffer(input_string_buffer, formated_argiment);
-                            }
-                            else{
                                 formated_argiment = intToString(value);
                                 appendToCharBuffer(input_string_buffer, formated_argiment);
 
                             }
-                            
+                            else
+                            {
+                                appendToCharBuffer(input_string_buffer, "4294967295");
+                            }
                             
 
                             
