@@ -9,7 +9,7 @@
 /**
  * _printf - A custom printf function that handles formatted string output.
  *
- * @input_string: The format string containing format specifiers.
+ * @format: The format string containing format specifiers.
  * @...: Variable number of arguments corresponding to the format specifiers.
  *
  * Description:
