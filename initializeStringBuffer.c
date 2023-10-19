@@ -39,6 +39,7 @@ buffer_pionter = (char *)malloc(sizeof(char) * buffer_size);
 if (buffer_pionter == NULL)
 {
 /* Memory allocation failed */
+free(buffer_pionter);
 return (NULL);
 }
 

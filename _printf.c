@@ -201,6 +201,7 @@ int _printf(const char *format, ...)
     /* Free all the pionter */
     va_end(input_string_arg);
     free(input_string_buffer);
+    
 
     /* A place holder for the total printed charchter */
     numberOfCharacters_printed++;
