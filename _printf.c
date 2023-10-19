@@ -211,6 +211,12 @@ int _printf(const char *format, ...)
                                 appendToCharBuffer(input_string_buffer, formated_argiment);
 
                             }
+                            else if (value == 0)
+                            {
+                                
+                                appendToCharBuffer(input_string_buffer, "0");
+                            }
+                            
                             else
                             {
                                 appendToCharBuffer(input_string_buffer, "4294967295");
