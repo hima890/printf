@@ -96,7 +96,7 @@ int _printf(const char *format, ...)
             {
                 /* Write the content of the buffer to the main output and break the loop */
                 writeToConsole(input_string_buffer);
-                numberOfCharacters_printed = strlen(input_string_buffer);
+                numberOfCharacters_printed = strlen(input_string_buffer) + 1;
                 return (numberOfCharacters_printed);
             }
         }
@@ -147,6 +147,7 @@ int _printf(const char *format, ...)
                             char value = va_arg(input_string_arg, int);
                             char *formated_argiment = charToString(value);
                             appendToCharBuffer(input_string_buffer, formated_argiment);
+                            
                         }
                         else if (format[input_string_index] == 'i')
                         {
@@ -195,6 +196,6 @@ int _printf(const char *format, ...)
     free(input_string_buffer);
 
     /* A place holder for the total printed charchter */
-    numberOfCharacters_printed = strlen(input_string_buffer);
+    numberOfCharacters_printed++;
     return (numberOfCharacters_printed);
 }
