@@ -135,7 +135,7 @@ int _printf(const char *format, ...)
                             if (value == '\0')
                             {
                                 numberOfCharacters_printed++;
-                                appendToCharBuffer(input_string_buffer, "\0");
+                                appendToCharBuffer(input_string_buffer, "\0\0");
                                 return (numberOfCharacters_printed);
                                 
                             }
