@@ -32,6 +32,7 @@ char *initializeStringBuffer(int buffer_size);
 bool isValidSpecifier(const char specifier);
 char *charToString(char character);
 char *intToString(int number);
+char *negativeIntToString(int number);
 char *floatToString(float number);
 void writeToConsole(const char *buffer);
 

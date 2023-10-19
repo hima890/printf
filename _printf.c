@@ -137,13 +137,29 @@ int _printf(const char *format, ...)
                         else if (format[input_string_index] == 'i')
                         {
                             int value = va_arg(input_string_arg, int);
-                            char *formated_argiment = intToString(value);
+                            char *formated_argiment;
+                            if (value > 0)
+                            {
+                                formated_argiment = intToString(value);
+                            }
+                            else
+                            {
+                                formated_argiment = negativeIntToString(value);
+                            }
                             appendToCharBuffer(input_string_buffer, formated_argiment);
                         }
                         else if (format[input_string_index] == 'd')
                         {
                             int value = va_arg(input_string_arg, int);
-                            char *formated_argiment = intToString(value);
+                            char *formated_argiment;
+                            if (value > 0)
+                            {
+                                formated_argiment = intToString(value);
+                            }
+                            else
+                            {
+                                formated_argiment = negativeIntToString(value);
+                            }
                             appendToCharBuffer(input_string_buffer, formated_argiment);
                         }
                         else if (format[input_string_index] == 's')
