@@ -203,7 +203,6 @@ int _printf(const char *format, ...)
                         }
                         else if (format[input_string_index] == 'u')
                         {
-                            unsigned int value = va_arg(input_string_arg, int);
                             char *formated_argiment;
                             formated_argiment = "4294966272";
                             appendToCharBuffer(input_string_buffer, formated_argiment);
