@@ -152,19 +152,21 @@ int _printf(const char *format, ...)
                             }
                             
                             appendToCharBuffer(input_string_buffer, formated_argiment);
-                            
+                            free(formated_argiment);
                         }
                         else if (format[input_string_index] == 'i')
                         {
                             int value = va_arg(input_string_arg, int);
                             char *formated_argiment = intToString(value);
                             appendToCharBuffer(input_string_buffer, formated_argiment);
+                            free(formated_argiment);
                         }
                         else if (format[input_string_index] == 'd')
                         {
                             int value = va_arg(input_string_arg, int);
                             char *formated_argiment = intToString(value);
                             appendToCharBuffer(input_string_buffer, formated_argiment);
+                            free(formated_argiment);
                         }
                         else if (format[input_string_index] == 's')
                         {
@@ -177,7 +179,7 @@ int _printf(const char *format, ...)
                             {
                                 appendToCharBuffer(input_string_buffer, charchter_holder);
                             }
-                            
+                            free(charchter_holder);
                         }
                     }
                     else
