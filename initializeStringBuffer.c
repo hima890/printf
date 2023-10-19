@@ -43,7 +43,7 @@ return (NULL);
 }
 
 /* Set the memory block to 0 */
-memset(buffer_pionter, 0, buffer_size);
+memset(buffer_pionter, 0, (sizeof(char) * buffer_size));
 /* Return the memory pionter */
 return (buffer_pionter);
 

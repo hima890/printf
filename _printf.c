@@ -56,6 +56,13 @@ int _printf(const char *format, ...)
         return (0);
     }
     input_string_buffer = initializeStringBuffer(BUFFER_SIZE);
+
+    if (input_string_buffer == NULL)
+    {
+        /* code */
+        return (-1);
+    }
+    
     /* Loop throght the charchters of the input_string */
     while (input_string_index < input_string_lenght)
     {
