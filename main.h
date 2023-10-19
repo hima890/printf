@@ -9,11 +9,21 @@
 
 /* Defind struct goes here */
 /* Define a structure to associate specifiers with data types */
-typedef struct {
+/**
+ * struct list - dog data
+ * @theSpicifier: name of the dog
+ * @theDataType: age of the dog
+ * Description: Defines metadata types
+*/
+struct list{
     char theSpicifier;
     char *theDataType;
-} type_list;
+};
 
+/**
+ * type_list - Type def. for dog stuct
+*/
+typedef struct list type_list;
 
 /*Functions prototypes goes here */
 int _printf(const char *format, ...);

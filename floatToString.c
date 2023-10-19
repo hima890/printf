@@ -15,7 +15,7 @@
  *   allocated string. The resulting string
  *  contains the floating-point number in
  *   string format.
- * RETURN: char charchter
+ * Return: char charchter
  */
 char *floatToString(float number)
 {
