@@ -59,7 +59,6 @@ int _printf(const char *format, ...)
     };
 
     if (format == NULL) {
-        printf("Error: NULL format string\n");
         return (-1);
     }
     /* Init. the vars valous */
