@@ -105,6 +105,11 @@ int _printf(const char *format, ...)
             /*printf("a specifier found\n");*/
             input_string_index++; /* Incrise the charchter index after the "%" to get the specifier */
             /*printf("The specifier is :%c\n", format[input_string_index]);*/
+            if (format[input_string_index] == '\0')
+            {
+                return (-1);
+            }
+            
 
             if (format[input_string_index] != '%')
             {
