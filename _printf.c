@@ -11,29 +11,6 @@
  *
  * @format: The format string containing format specifiers.
  * @...: Variable number of arguments corresponding to the format specifiers.
- *
- * Description:
- *   This function provides custom printf-like functionality. It accepts a
- *   format string and a variable number of arguments, formats and converts
- *   the arguments according to the format specifiers in the string, and then
- *   prints the formatted result to the standard output.
- *
- *   Format specifiers are marked by '%' in the format string. The function
- *   supports the following format specifiers:
- *   - %c: for characters
- *   - %i: for integers
- *   - %f: for floating-point numbers
- *   - %s: for strings
- *
- *   If the format string contains an unsupported specifier, a message is
- *   printed, and the function terminates.
- *
- *   If the data type of the argument does not match the specifier, a message
- *   is printed, and the function terminates.
- *
- *   The function dynamically allocates and frees memory for a buffer to hold
- *   the formatted result.
- *
  * Return: None (void)
  */
 
