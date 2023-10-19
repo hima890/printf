@@ -76,6 +76,7 @@ int _printf(const char *format, ...)
         /* code */
         /* Print a message if string is empty */
         /* printf("Error zero-length gnu_printf format string\n");*/
+        free(input_string_buffer);
         return (0);
     }
 
@@ -97,6 +98,7 @@ int _printf(const char *format, ...)
                 /* Write the content of the buffer to the main output and break the loop */
                 writeToConsole(input_string_buffer);
                 numberOfCharacters_printed = strlen(input_string_buffer) + numberOfCharacters_printed;
+                free(input_string_buffer);
                 return (numberOfCharacters_printed);
             }
         }
@@ -107,6 +109,7 @@ int _printf(const char *format, ...)
             /*printf("The specifier is :%c\n", format[input_string_index]);*/
             if (format[input_string_index] == '\0')
             {
+                free(input_string_buffer);
                 return (-1);
             }
             
