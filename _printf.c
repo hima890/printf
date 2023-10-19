@@ -32,7 +32,8 @@ int _printf(const char *format, ...)
         {'i', "int"},
         {'f', "float"},
         {'s', "string"},
-        {'d', "integer "},
+        {'d', "integer"},
+        {'b', "binary"},
         {0, NULL} /* Use 0 to indicate the end of the list */
     };
 
@@ -191,6 +192,15 @@ int _printf(const char *format, ...)
                             }
                             
                         }
+                        else if (format[input_string_index] == 'b')
+                        {
+                            int value = va_arg(input_string_arg, int);
+                            char *formated_argiment;
+                            formated_argiment = intToBinary(value);
+                            appendToCharBuffer(input_string_buffer, formated_argiment);
+
+                        }
+                        
                     }
                     else
                     {

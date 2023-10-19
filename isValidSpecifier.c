@@ -26,6 +26,7 @@ bool isValidSpecifier(const char specifier)
         {'f', "float"},
         {'s', "string"},
         {'d', "integer "},
+        {'b', "binary"},
         {0, NULL} /* Use 0 to indicate the end of the list */
     };
 

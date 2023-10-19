@@ -34,6 +34,7 @@ char *charToString(char character);
 char *intToString(int number);
 char *negativeIntToString(int number);
 char *floatToString(float number);
+char *intToBinary(int number);
 void writeToConsole(const char *buffer);
 
 
