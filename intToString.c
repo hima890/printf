@@ -30,7 +30,7 @@ int loopIndex;
 
 if (temp == 0)
 {
-length = 1;  /* Special case for zero */
+length = 1;/* Special case for zero */
 }
 else
 {
