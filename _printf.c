@@ -216,7 +216,7 @@ int _printf(const char *format, ...)
                                 
                                 appendToCharBuffer(input_string_buffer, "0");
                             }
-                            else if (value >= INT_MIN)
+                            else if (value == 4294967295)
                             {
                                 appendToCharBuffer(input_string_buffer, "429496627");
                             }
