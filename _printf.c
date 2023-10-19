@@ -4,6 +4,7 @@
 #include <string.h>
 #include <stdbool.h>
 #include <stdarg.h>
+#include <limits.h>
 #include "main.h"
 
 /**
@@ -140,11 +141,19 @@ int _printf(const char *format, ...)
                             char *formated_argiment;
                             if (value >= 0)
                             {
+                            
                                 formated_argiment = intToString(value);
                             }
                             else
                             {
-                                formated_argiment = negativeIntToString(value);
+                                if (value == INT_MIN)
+                                {
+                                    formated_argiment = "-2147483648";
+                                }
+                                else
+                                {
+                                    formated_argiment = negativeIntToString(value);
+                                }
                             }
                             appendToCharBuffer(input_string_buffer, formated_argiment);
                         }
@@ -158,7 +167,14 @@ int _printf(const char *format, ...)
                             }
                             else
                             {
-                                formated_argiment = negativeIntToString(value);
+                                if (value == INT_MIN)
+                                {
+                                    formated_argiment = "-2147483648";
+                                }
+                                else
+                                {
+                                    formated_argiment = negativeIntToString(value);
+                                }
                             }
                             appendToCharBuffer(input_string_buffer, formated_argiment);
                         }
