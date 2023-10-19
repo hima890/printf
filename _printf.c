@@ -132,14 +132,6 @@ int _printf(const char *format, ...)
                         {
                             char value = va_arg(input_string_arg, int);
                             char *formated_argiment = charToString(value);
-                            if (value == '\0')
-                            {
-                                numberOfCharacters_printed++;
-                                appendToCharBuffer(input_string_buffer, "\0\0");
-                                return (numberOfCharacters_printed);
-                                
-                            }
-                            
                             appendToCharBuffer(input_string_buffer, formated_argiment);
                         }
                         else if (format[input_string_index] == 'i')
