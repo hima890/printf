@@ -35,6 +35,7 @@ char *intToString(int number);
 char *negativeIntToString(int number);
 char *floatToString(float number);
 char *intToBinary(int number);
+char *intToOctal(unsigned int value);
 void writeToConsole(const char *buffer);
 
 

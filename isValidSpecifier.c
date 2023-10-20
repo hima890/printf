@@ -28,6 +28,7 @@ bool isValidSpecifier(const char specifier)
         {'d', "integer "},
         {'b', "binary"},
         {'u', "unsigned"},
+        {'o', "octal"},
         {0, NULL} /* Use 0 to indicate the end of the list */
     };
 

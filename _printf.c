@@ -35,6 +35,7 @@ int _printf(const char *format, ...)
         {'d', "integer"},
         {'b', "binary"},
         {'u', "unsigned"},
+        {'o', "octal"},
         {0, NULL} /* Use 0 to indicate the end of the list */
     };
 
@@ -251,6 +252,14 @@ int _printf(const char *format, ...)
                             
                             
                         }
+                        else if (format[input_string_index] == 'o')
+                        {
+                            char *formated_argiment;
+                            unsigned int value = va_arg(input_string_arg, int);
+                            formated_argiment = intToOctal(value);
+                            appendToCharBuffer(input_string_buffer, formated_argiment);
+                        }
+                        
                         
                         
                     }
