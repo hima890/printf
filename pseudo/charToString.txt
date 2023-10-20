@@ -1,0 +1,14 @@
+function charToString(character)
+    // Allocate memory for a string of size 2
+    string_pointer = allocateMemory(2)
+
+    if string_pointer is NULL
+        return NULL // Memory allocation failed
+
+    // Set the character at the first position in the string
+    string_pointer[0] = character
+
+    // Null-terminate the string
+    string_pointer[1] = '\0'
+
+    return string_pointer
