@@ -287,9 +287,18 @@ int _printf(const char *format, ...)
                         else if (format[input_string_index] == 'p')
                         {
                             void *value = va_arg(input_string_arg, void *);
-                            char *formated_argiment;
-                            formated_argiment = pointerToHex(value);
-                            appendToCharBuffer(input_string_buffer, formated_argiment);
+                            if (value == NULL)
+                            {
+                                appendToCharBuffer(input_string_buffer, "(nil)");
+                            }
+                            else
+                            {
+                                char *formated_argiment;
+                                formated_argiment = pointerToHex(value);
+                                appendToCharBuffer(input_string_buffer, formated_argiment);
+                            }
+                            
+                            
                         }
                         
                         
