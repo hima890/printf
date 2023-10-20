@@ -437,9 +437,17 @@ int _printf(const char *format, ...)
                             input_string_index++;
 
                             formated_argiment = intToHex(value, 0);
+                            if (value == 0)
+                            {
+                                appendToCharBuffer(input_string_buffer,"0");
+                            }
+                            else
+                            {
+                                formated_argiment2 = add0xPrefixToHex(formated_argiment);
+                                appendToCharBuffer(input_string_buffer, formated_argiment2);
+                            }
                             
-                            formated_argiment2 = add0xPrefixToHex(formated_argiment);
-                            appendToCharBuffer(input_string_buffer, formated_argiment2);
+                            
                                   
                         }
 
@@ -453,8 +461,15 @@ int _printf(const char *format, ...)
 
                             formated_argiment = intToHex(value, 1);
                             
-                            formated_argiment2 = add0xPrefixToHex(formated_argiment);
-                            appendToCharBuffer(input_string_buffer, formated_argiment2);
+                            if (value == 0)
+                            {
+                                appendToCharBuffer(input_string_buffer,"0");
+                            }
+                            else
+                            {
+                                formated_argiment2 = add0xPrefixToHex(formated_argiment);
+                                appendToCharBuffer(input_string_buffer, formated_argiment2);
+                            }
                                   
                         }
                     }
