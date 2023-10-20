@@ -1,0 +1,25 @@
+function addSignToString(originalString, sign)
+    // Declare variables
+    updatedString
+
+    // Calculate the length of the original string
+    originalLength = length(originalString)
+
+    // Calculate the new length, which includes space for the sign character and null terminator
+    newLength = originalLength + 2
+
+    // Allocate memory for the updated string
+    updatedString = allocateMemory(newLength)
+
+    // Check for memory allocation failure
+    if updatedString is NULL
+        return NULL
+
+    // Add the sign character at the beginning of the updated string
+    updatedString[0] = sign
+
+    // Copy the original string to the updated string, starting from the second position
+    copy(updatedString + 1, originalString)
+
+    // Return the dynamically allocated string with the sign character added at the beginning
+    return updatedString
