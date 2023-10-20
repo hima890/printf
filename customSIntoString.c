@@ -34,7 +34,7 @@ char *convertNonPrintableCharToHex(char *inputString)
 
     inputLength = strlen(inputString);
 
-    output = (char *)malloc(3 * inputLength + 1);
+    output = (char *)malloc(10 * inputLength + 1);
 
     if (output == NULL) {
         return (NULL);
