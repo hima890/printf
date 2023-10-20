@@ -1,0 +1,64 @@
+function floatToString(number)
+    // Declare variables
+    result
+    integerPart
+    fractionalPart
+    decimalPlaces = 6
+    power
+    i
+    j
+
+    // Allocate memory for the string
+    result = allocateMemory(64)
+
+    if result is NULL
+        return NULL // Memory allocation failed
+
+    // Handle the sign
+    if number < 0
+        result[0] = '-'
+        number = -number
+    else
+        result[0] = ' '
+
+    // Convert the integer part to a string
+    integerPart = integerPart of number
+    i = 1
+
+    if integerPart is 0
+        result[i] = '0'
+    else
+        while integerPart > 0
+            result[i] = '0' + (integerPart % 10)
+            integerPart = integerPart / 10
+            i = i + 1
+
+        // Reverse the integer part in the string
+        start = 1
+        end = i - 1
+
+        while start < end
+            temp = result[start]
+            result[start] = result[end]
+            result[end] = temp
+            start = start + 1
+            end = end - 1
+
+    // Add the decimal point
+    result[i] = '.'
+
+    // Convert the fractional part to a string
+    fractionalPart = number - (float)integerPart
+    power = 1
+
+    for j = 0 to decimalPlaces - 1
+        power = power * 10
+        digit = (int)(fractionalPart * power)
+        result[i] = '0' + (digit % 10)
+        fractionalPart = fractionalPart * power
+        i = i + 1
+
+    // Null-terminate the string
+    result[i] = '\0'
+
+    return result
