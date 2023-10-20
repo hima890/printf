@@ -1,0 +1,51 @@
+function convertNonPrintableCharToHex(inputString)
+    // Declare variables
+    inputLength
+    output
+    i
+    outputIndex
+    inputChar
+
+    // Check if the input string is NULL
+    if inputString is NULL
+        return NULL
+
+    // Calculate the length of the input string
+    inputLength = length(inputString)
+
+    // Allocate memory for the output string (considering the worst case where every character becomes "\xXX")
+    output = allocateMemory(10 * inputLength + 1)
+
+    // Check for memory allocation failure
+    if output is NULL
+        return NULL
+
+    // Initialize the output index
+    outputIndex = 0
+
+    // Loop through each character in the input string
+    for i from 0 to inputLength - 1
+        inputChar = inputString[i]
+
+        // Check if the character is non-printable
+        if inputChar is less than 32 or inputChar is greater than or equal to 127
+            // Append "\xXX" format to the output string
+            output[outputIndex] = '\'
+            outputIndex = outputIndex + 1
+            output[outputIndex] = 'x'
+            outputIndex = outputIndex + 1
+            output[outputIndex] = "0123456789ABCDEF"[(unsigned char)inputChar >> 4]
+            outputIndex = outputIndex + 1
+            output[outputIndex] = "0123456789ABCDEF"[(unsigned char)inputChar & 0x0F]
+        else
+            // Copy the printable character as-is
+            output[outputIndex] = inputChar
+
+        // Increment the output index
+        outputIndex = outputIndex + 1
+
+    // Null-terminate the output string
+    output[outputIndex] = '\0'
+
+    // Return the dynamically allocated string with converted characters
+    return output
