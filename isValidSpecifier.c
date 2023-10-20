@@ -31,6 +31,7 @@ bool isValidSpecifier(const char specifier)
         {'o', "octal"},
         {'x', "hex"},
         {'X', "hex"},
+        {'S', "hex"},
         {0, NULL} /* Use 0 to indicate the end of the list */
     };
 

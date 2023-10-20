@@ -1,3 +1,42 @@
 Your code will be compiled this way:
 gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c
 gcc -Wall -Werror -Wextra -pedantic -Wno-format -std=gnu89 *.c
+
+
+size_t inputLength;
+    char *output;
+    int i;
+    int outputIndex;
+    char inputChar;
+
+    if (inputString == NULL) {
+        return NULL;
+    }
+
+    inputLength = strlen(inputString);
+
+    output = (char *)malloc(3 * inputLength + 1);
+
+    if (output == NULL) {
+        return NULL; // Memory allocation failed
+    }
+
+    outputIndex = 0;
+
+    for (i = 0; i < inputLength; i++) {
+        inputChar = inputString[i];
+
+        if (inputChar < 32 || inputChar >= 127) 
+        {
+            output[outputIndex++] = '\\';
+            output[outputIndex++] = 'x';
+            output[outputIndex++] = "0123456789ABCDEF"[(unsigned char)inputChar >> 4];
+            output[outputIndex++] = "0123456789ABCDEF"[(unsigned char)inputChar & 0x0F];
+        } else {
+            output[outputIndex++] = inputChar;
+        }
+    }
+
+    output[outputIndex] = '\0';
+
+    return (output);

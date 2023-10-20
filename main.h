@@ -37,6 +37,7 @@ char *floatToString(float number);
 char *intToBinary(int number);
 char *intToOctal(unsigned int value);
 char *intToHex(unsigned int value, int flag);
+char *convertNonPrintableCharToHex(char *inputString);
 void writeToConsole(const char *buffer);
 
 
