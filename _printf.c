@@ -40,6 +40,8 @@ int _printf(const char *format, ...)
         {'X', "hex"},
         {'S', "hex"},
         {'p', "pointer"},
+        {'+', "flag"},
+        {' ', "flag"},
         {0, NULL} /* Use 0 to indicate the end of the list */
     };
 
@@ -145,18 +147,6 @@ int _printf(const char *format, ...)
                         else if (format[input_string_index] == 'i')
                         {
                             int value = va_arg(input_string_arg, int);
-                            if (format[input_string_index + 1] == "+")
-                            {
-                                if (value < 0)
-                                {
-                                    appendToCharBuffer(input_string_buffer, "-");
-                                }
-                                else
-                                {
-                                    appendToCharBuffer(input_string_buffer, "+");
-                                }
-                                
-                            }
                             char *formated_argiment;
                             if (value >= 0)
                             {
@@ -174,25 +164,16 @@ int _printf(const char *format, ...)
                                     formated_argiment = negativeIntToString(value);
                                 }
                             }
+
+                            
+                    
                             appendToCharBuffer(input_string_buffer, formated_argiment);
+                            
+    
                         }
                         else if (format[input_string_index] == 'd')
                         {
                             int value = va_arg(input_string_arg, int);
-                            if (format[input_string_index + 1] == "+")
-                            {
-                                if (value < 0)
-                                {
-                                    appendToCharBuffer(input_string_buffer, "-");
-                                }
-                                else
-                                {
-                                    appendToCharBuffer(input_string_buffer, "+");
-                                }
-                                
-                            }
-                            
-                            
                             char *formated_argiment;
                             if (value >= 0)
                             {
@@ -326,6 +307,104 @@ int _printf(const char *format, ...)
                             
                             
                         }
+                        else if ((format[input_string_index] == '+' && format[input_string_index + 1] == 'd') || (format[input_string_index] == ' ' && format[input_string_index + 1] == 'd'))
+                        {
+                            
+                            int value = va_arg(input_string_arg, int);
+                            char *formated_argiment;
+                            input_string_index++;
+                            if (value >= 0)
+                            {
+                            
+                                formated_argiment = intToString(value);
+                            }
+                            else
+                            {
+                                if (value == INT_MIN)
+                                {
+                                    formated_argiment = "-2147483648";
+                                }
+                                else
+                                {
+                                    formated_argiment = negativeIntToString(value);
+                                }
+                            }
+
+                            if (value >= 0)
+                            {
+                                char *formated_argiment2;
+                                if (format[input_string_index -1 ] == ' ')
+                                {
+                                    formated_argiment2 = addSignToString(formated_argiment, ' ');
+                                    appendToCharBuffer(input_string_buffer, formated_argiment2);
+                                }
+                                else
+                                {
+                                    formated_argiment2 = addSignToString(formated_argiment, '+');
+                                    appendToCharBuffer(input_string_buffer, formated_argiment2);
+                                }
+                                
+                                
+                            
+                            }
+                    
+                            else
+                            {
+                                appendToCharBuffer(input_string_buffer, formated_argiment);
+                            }
+    
+                        }
+
+                        else if ((format[input_string_index] == '+' && format[input_string_index + 1] == 'i') || (format[input_string_index] == ' ' && format[input_string_index + 1] == 'i'))
+                        {
+                            
+                            int value = va_arg(input_string_arg, int);
+                            char *formated_argiment;
+                            input_string_index++;
+                            if (value >= 0)
+                            {
+                            
+                                formated_argiment = intToString(value);
+                            }
+                            else
+                            {
+                                if (value == INT_MIN)
+                                {
+                                    formated_argiment = "-2147483648";
+                                }
+                                else
+                                {
+                                    formated_argiment = negativeIntToString(value);
+                                }
+                            }
+
+                            
+                            if (value >= 0)
+                            {
+                                char *formated_argiment2;
+                                if (format[input_string_index -1 ] == ' ')
+                                {
+                                    formated_argiment2 = addSignToString(formated_argiment, ' ');
+                                    appendToCharBuffer(input_string_buffer, formated_argiment2);
+                                }
+                                else
+                                {
+                                    printf("test2\n");
+                                    formated_argiment2 = addSignToString(formated_argiment, '+');
+                                    appendToCharBuffer(input_string_buffer, formated_argiment2);
+                                }
+                                
+                                
+                            
+                            }
+                    
+                            else
+                            {
+                                appendToCharBuffer(input_string_buffer, formated_argiment);
+                            }
+                            
+                        }
+
                         
                         
                     }

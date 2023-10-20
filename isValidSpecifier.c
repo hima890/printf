@@ -33,6 +33,8 @@ bool isValidSpecifier(const char specifier)
         {'X', "hex"},
         {'S', "hex"},
         {'p', "pointer"},
+        {'+', "flag"},
+        {' ', "flag"},
         {0, NULL} /* Use 0 to indicate the end of the list */
     };
 
