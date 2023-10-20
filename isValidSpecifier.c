@@ -36,6 +36,7 @@ bool isValidSpecifier(const char specifier)
         {'+', "flag"},
         {' ', "flag"},
         {'#', "flag"},
+        {'r', "char *"},
         {0, NULL} /* Use 0 to indicate the end of the list */
     };
 

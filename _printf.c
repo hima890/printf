@@ -43,6 +43,7 @@ int _printf(const char *format, ...)
         {'+', "flag"},
         {' ', "flag"},
         {'#', "flag"},
+        {'r', "char *"},
         {0, NULL} /* Use 0 to indicate the end of the list */
     };
 
@@ -661,6 +662,13 @@ int _printf(const char *format, ...)
                             }
                         }
                     
+                        else if (format[input_string_index] == 'r')
+                        {
+                            char *value = va_arg(input_string_arg, char *);
+                            char *formated_argiment = reverseString(value);
+                            appendToCharBuffer(input_string_buffer, formated_argiment);
+                        }
+
                     }
                     else
                     {
