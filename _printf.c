@@ -472,6 +472,197 @@ int _printf(const char *format, ...)
                             }
                                   
                         }
+
+
+                        else if ((format[input_string_index] == ' ' && format[input_string_index + 1] == '+') && (format[input_string_index + 2] == 'i'))
+                        {
+                            int value = va_arg(input_string_arg, int);
+                            char *formated_argiment;
+                            input_string_index++;
+                            input_string_index++;
+                            if (value >= 0)
+                            {
+                            
+                                formated_argiment = intToString(value);
+                            }
+                            else
+                            {
+                                if (value == INT_MIN)
+                                {
+                                    formated_argiment = "-2147483648";
+                                }
+                                else
+                                {
+                                    formated_argiment = negativeIntToString(value);
+                                }
+                            }
+
+                            
+                            if (value >= 0)
+                            {
+                                char *formated_argiment2;
+                                
+                                if (format[input_string_index -1 ] == ' ')
+                                {
+                                    formated_argiment2 = addSignToString(formated_argiment, ' ');
+                                    appendToCharBuffer(input_string_buffer, formated_argiment2);
+                                }
+                                else
+                                {
+                                    formated_argiment2 = addSignToString(formated_argiment, '+');
+                                    appendToCharBuffer(input_string_buffer, formated_argiment2);
+                                }
+                                
+                                
+                            
+                            }
+                    
+                            else
+                            {
+                                appendToCharBuffer(input_string_buffer, formated_argiment);
+                            }
+                            
+                        }
+
+
+                        else if ((format[input_string_index] == '+' && format[input_string_index + 1] == ' ') && (format[input_string_index + 2] == 'i'))
+                        {
+                            int value = va_arg(input_string_arg, int);
+                            char *formated_argiment;
+                            input_string_index++;
+                            input_string_index++;
+                            if (value >= 0)
+                            {
+                            
+                                formated_argiment = intToString(value);
+                            }
+                            else
+                            {
+                                if (value == INT_MIN)
+                                {
+                                    formated_argiment = "-2147483648";
+                                }
+                                else
+                                {
+                                    formated_argiment = negativeIntToString(value);
+                                }
+                            }
+
+                            
+                            if (value >= 0)
+                            {
+                                char *formated_argiment2;
+                                
+                        
+                                formated_argiment2 = addSignToString(formated_argiment, '+');
+                                appendToCharBuffer(input_string_buffer, formated_argiment2);
+                            
+                                
+                
+                            
+                            }
+                    
+                            else
+                            {
+                                appendToCharBuffer(input_string_buffer, formated_argiment);
+                            }
+                            
+                        }
+
+
+                        else if ((format[input_string_index] == '+' && format[input_string_index + 1] == ' ') && (format[input_string_index + 2] == 'd'))
+                        {
+                            int value = va_arg(input_string_arg, int);
+                            char *formated_argiment;
+                            input_string_index++;
+                            input_string_index++;
+                            if (value >= 0)
+                            {
+                            
+                                formated_argiment = intToString(value);
+                            }
+                            else
+                            {
+                                if (value == INT_MIN)
+                                {
+                                    formated_argiment = "-2147483648";
+                                }
+                                else
+                                {
+                                    formated_argiment = negativeIntToString(value);
+                                }
+                            }
+
+                            if (value >= 0)
+                            {
+                                char *formated_argiment2;
+                                if (format[input_string_index -1 ] == ' ')
+                                {
+                                    formated_argiment2 = addSignToString(formated_argiment, ' ');
+                                    appendToCharBuffer(input_string_buffer, formated_argiment2);
+                                }
+                                else
+                                {
+                                    formated_argiment2 = addSignToString(formated_argiment, '+');
+                                    appendToCharBuffer(input_string_buffer, formated_argiment2);
+                                }
+                                
+                                
+                            
+                            }
+                    
+                            else
+                            {
+                                appendToCharBuffer(input_string_buffer, formated_argiment);
+                            }
+                        }
+
+
+                        else if ((format[input_string_index] == ' ' && format[input_string_index + 1] == '+') && (format[input_string_index + 2] == 'd'))
+                        {
+                            int value = va_arg(input_string_arg, int);
+                            char *formated_argiment;
+                            input_string_index++;
+                            if (value >= 0)
+                            {
+                            
+                                formated_argiment = intToString(value);
+                            }
+                            else
+                            {
+                                if (value == INT_MIN)
+                                {
+                                    formated_argiment = "-2147483648";
+                                }
+                                else
+                                {
+                                    formated_argiment = negativeIntToString(value);
+                                }
+                            }
+
+                            if (value >= 0)
+                            {
+                                char *formated_argiment2;
+                                if (format[input_string_index -1 ] == ' ')
+                                {
+                                    formated_argiment2 = addSignToString(formated_argiment, ' ');
+                                    appendToCharBuffer(input_string_buffer, formated_argiment2);
+                                }
+                                else
+                                {
+                                    formated_argiment2 = addSignToString(formated_argiment, '+');
+                                    appendToCharBuffer(input_string_buffer, formated_argiment2);
+                                }
+                                
+                                
+                            
+                            }
+                    
+                            else
+                            {
+                                appendToCharBuffer(input_string_buffer, formated_argiment);
+                            }
+                        }
                     }
                     else
                     {
