@@ -1,9 +1,7 @@
 #ifndef MAIN_H
 #define MAIN_H
-
 /* Header files goes here */
 #include <stdbool.h>
-
 /* Defind morcos goes here*/
 #define BUFFER_SIZE 1000024
 
@@ -38,7 +36,6 @@ char *intToBinary(int number);
 char *intToOctal(unsigned int value);
 char *intToHex(unsigned int value, int flag);
 char *convertNonPrintableCharToHex(char *inputString);
+char *pointerToHex(void *ptr);
 void writeToConsole(const char *buffer);
-
-
 #endif

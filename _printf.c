@@ -39,6 +39,7 @@ int _printf(const char *format, ...)
         {'x', "hex"},
         {'X', "hex"},
         {'S', "hex"},
+        {'p', "pointer"},
         {0, NULL} /* Use 0 to indicate the end of the list */
     };
 
@@ -281,6 +282,13 @@ int _printf(const char *format, ...)
                             char *value = va_arg(input_string_arg, char*);
                             char *formated_argiment;
                             formated_argiment = convertNonPrintableCharToHex(value);
+                            appendToCharBuffer(input_string_buffer, formated_argiment);
+                        }
+                        else if (format[input_string_index] == 'p')
+                        {
+                            void *value = va_arg(input_string_arg, void *);
+                            char *formated_argiment;
+                            formated_argiment = pointerToHex(value);
                             appendToCharBuffer(input_string_buffer, formated_argiment);
                         }
                         
