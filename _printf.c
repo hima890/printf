@@ -36,6 +36,8 @@ int _printf(const char *format, ...)
         {'b', "binary"},
         {'u', "unsigned"},
         {'o', "octal"},
+        {'x', "hex"},
+        {'X', "hex"},
         {0, NULL} /* Use 0 to indicate the end of the list */
     };
 
@@ -259,7 +261,20 @@ int _printf(const char *format, ...)
                             formated_argiment = intToOctal(value);
                             appendToCharBuffer(input_string_buffer, formated_argiment);
                         }
-                        
+                        else if (format[input_string_index] == 'x')
+                        {
+                            char *formated_argiment;
+                            unsigned int value = va_arg(input_string_arg, int);
+                            formated_argiment = intToHex(value, 0);
+                            appendToCharBuffer(input_string_buffer, formated_argiment);
+                        }
+                        else if (format[input_string_index] == 'X')
+                        {
+                            char *formated_argiment;
+                            unsigned int value = va_arg(input_string_arg, int);
+                            formated_argiment = intToHex(value, 1);
+                            appendToCharBuffer(input_string_buffer, formated_argiment);
+                        }
                         
                         
                     }
