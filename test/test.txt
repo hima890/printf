@@ -1,2 +1,2 @@
 a test file fot testing the cases of the _printf() function
-all tests are 
+all
