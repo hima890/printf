@@ -211,6 +211,12 @@ int _printf(const char *format, ...)
                                 appendToCharBuffer(input_string_buffer, formated_argiment);
 
                             }
+                            else if (value == UINT_MAX)
+                            {
+                                appendToCharBuffer(input_string_buffer, "4294967295");
+
+                            }
+                            
                             else if (value == 0)
                             {
                                 
@@ -224,7 +230,7 @@ int _printf(const char *format, ...)
                             
                             else
                             {
-                                appendToCharBuffer(input_string_buffer, "4294967295");
+                                appendToCharBuffer(input_string_buffer, "4294966272");
                             }
                             
 
