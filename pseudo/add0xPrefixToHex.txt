@@ -1,0 +1,31 @@
+function add0xPrefixToHex(hexString)
+    // Declare variables
+    inputLength
+    newLength
+    result
+
+    // Check if the input hexString is NULL
+    if hexString is NULL
+        return NULL // Return NULL if the input string is NULL
+
+    // Calculate the length of the input string
+    inputLength = length(hexString)
+
+    // Calculate the new length, which includes space for "0x" prefix and null terminator
+    newLength = inputLength + 2
+
+    // Allocate memory for the result string
+    result = allocateMemory(newLength + 1)
+
+    // Check if memory allocation fails
+    if result is NULL
+        return NULL
+
+    // Copy "0x" prefix to the result string
+    copy(result, "0x")
+
+    // Concatenate the input hexString to the result
+    concatenate(result, hexString)
+
+    // Return the dynamically allocated string with "0x" prefix
+    return result
