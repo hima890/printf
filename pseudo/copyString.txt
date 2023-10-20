@@ -1,0 +1,3 @@
+function copyString(dest, src)
+    // Copy the string from src to dest
+    strcpy(dest, src)
