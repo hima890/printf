@@ -3,8 +3,10 @@ This project is an implementation of the printf function, a fundamental feature 
 
 tasks Fail:
 task : 0
+task : 7
 task : 12
 task : 15
+
 TasksDone:
 task : 1
 task : 2
