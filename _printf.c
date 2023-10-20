@@ -595,18 +595,11 @@ int _printf(const char *format, ...)
 
                             if (value >= 0)
                             {
-                                char *formated_argiment2;
-                                if (format[input_string_index -1 ] == ' ')
-                                {
-                                    formated_argiment2 = addSignToString(formated_argiment, ' ');
-                                    appendToCharBuffer(input_string_buffer, formated_argiment2);
-                                }
-                                else
-                                {
-                                    formated_argiment2 = addSignToString(formated_argiment, '+');
-                                    appendToCharBuffer(input_string_buffer, formated_argiment2);
-                                }
+                                char *formated_argiment2;            
+                                formated_argiment2 = addSignToString(formated_argiment, '+');
+                                appendToCharBuffer(input_string_buffer, formated_argiment2);
                                 
+                
                                 
                             
                             }
