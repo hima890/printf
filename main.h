@@ -41,5 +41,6 @@ char *pointerToHex(void *ptr);
 char* addSignToString(const char* originalString, char sign);
 char* add0xPrefixToHex(const char* hexString);
 char *reverseString(const char *str);
+char *rot13(const char *str);
 void writeToConsole(const char *buffer);
 #endif
