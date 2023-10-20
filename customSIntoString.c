@@ -6,7 +6,7 @@
 /**
  * convertNonPrintableCharToHex - Converts a non-printable character to its hexadecimal representation.
  *
- * @inputChar: The character to be converted.
+ * @inputString: The character to be converted.
  *
  * Description:
  *   This function takes a character as input and converts it to its hexadecimal representation.

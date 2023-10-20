@@ -145,6 +145,18 @@ int _printf(const char *format, ...)
                         else if (format[input_string_index] == 'i')
                         {
                             int value = va_arg(input_string_arg, int);
+                            if (format[input_string_index + 1] == "+")
+                            {
+                                if (value < 0)
+                                {
+                                    appendToCharBuffer(input_string_buffer, "-");
+                                }
+                                else
+                                {
+                                    appendToCharBuffer(input_string_buffer, "+");
+                                }
+                                
+                            }
                             char *formated_argiment;
                             if (value >= 0)
                             {
@@ -167,6 +179,20 @@ int _printf(const char *format, ...)
                         else if (format[input_string_index] == 'd')
                         {
                             int value = va_arg(input_string_arg, int);
+                            if (format[input_string_index + 1] == "+")
+                            {
+                                if (value < 0)
+                                {
+                                    appendToCharBuffer(input_string_buffer, "-");
+                                }
+                                else
+                                {
+                                    appendToCharBuffer(input_string_buffer, "+");
+                                }
+                                
+                            }
+                            
+                            
                             char *formated_argiment;
                             if (value >= 0)
                             {
