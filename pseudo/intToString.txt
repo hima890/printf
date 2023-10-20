@@ -1,0 +1,46 @@
+function intToString(number)
+    // Define variables
+    temp = number
+    length = 0
+    result
+    loopIndex
+
+    // Handle special case for zero
+    if temp is 0
+        length = 1
+
+    // Calculate the number of digits in the integer
+    else
+        while temp is not 0
+            temp = temp / 10
+            length = length + 1
+
+    // Allocate memory for the string (including space for null-terminator)
+    result = allocateMemory(length + 1)
+
+    // Check for memory allocation failure
+    if result is NULL
+        return NULL
+
+    // Convert the integer to a string manually
+    result[length] = '\0' // Null-terminate the string
+
+    // Handle special case for zero
+    if number is 0
+        result[0] = '0'
+
+    else
+        isNegative = 0
+
+        // Check for negative numbers
+        if number < 0
+            isNegative = 1
+            number = -number
+
+        // Convert the integer to a string
+        for loopIndex from length - 1 to 0 step -1
+            result[loopIndex] = (char)((number % 10) + '0')
+            number = number / 10
+
+        // Add a minus sign for negative numbers
+        if isNegative is 
