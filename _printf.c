@@ -389,7 +389,6 @@ int _printf(const char *format, ...)
                                 }
                                 else
                                 {
-                                    printf("test2\n");
                                     formated_argiment2 = addSignToString(formated_argiment, '+');
                                     appendToCharBuffer(input_string_buffer, formated_argiment2);
                                 }
