@@ -98,6 +98,7 @@ int _printf(const char *format, ...)
         }
         else /* If a specifier found */
         {
+    
             /*printf("a specifier found\n");*/
             input_string_index++; /* Incrise the charchter index after the "%" to get the specifier */
             /*printf("The specifier is :%c\n", format[input_string_index]);*/
@@ -110,6 +111,7 @@ int _printf(const char *format, ...)
 
             if (format[input_string_index] != '%')
             {
+                
                 if (isValidSpecifier(format[input_string_index]) != true) /* If its not valid specifier */
                 {
                     /*printf("not valid spicifier\n");*/
@@ -118,6 +120,7 @@ int _printf(const char *format, ...)
                 }
                 else /* If its valid specifier */
                 {
+                    
                     /*printf("'%c' is a valid specifier\n", format[input_string_index]);*/
 
                     /* Initialize dataType_index with -1 to indicate no match */
@@ -458,7 +461,7 @@ int _printf(const char *format, ...)
 
                             unsigned int value = va_arg(input_string_arg, int);
                             input_string_index++;
-
+                            
                             formated_argiment = intToHex(value, 1);
                             
                             if (value == 0)
@@ -657,6 +660,7 @@ int _printf(const char *format, ...)
                                 appendToCharBuffer(input_string_buffer, formated_argiment);
                             }
                         }
+                    
                     }
                     else
                     {
@@ -667,6 +671,8 @@ int _printf(const char *format, ...)
             }
             else
             {
+                
+                
                 /* Append to the charchter to the buffer */
                 appendToCharBuffer(input_string_buffer, "%");
             }
