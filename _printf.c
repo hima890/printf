@@ -623,6 +623,7 @@ int _printf(const char *format, ...)
                             int value = va_arg(input_string_arg, int);
                             char *formated_argiment;
                             input_string_index++;
+                            input_string_index++;
                             if (value >= 0)
                             {
                             
