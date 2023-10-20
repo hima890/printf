@@ -25,7 +25,7 @@ char *pointerToHex(void *ptr)
 
     int numDigits = (sizeof(void*) * 2);
 
-    char *result = (char*)malloc(numDigits + 3);
+    char *result = (char*)malloc(numDigits + 19);
     int index;
 
     size_t newLength;
@@ -51,12 +51,23 @@ char *pointerToHex(void *ptr)
         result[index] = hexChars[address & 0xf];
         address >>= 4;
     }
-    newLength = strlen(result) - 4;
-    newString = (char *)malloc(14 + 1);
+    
+    newLength = strlen(result);
+    newString = (char *)malloc(3);
     newString[0] = 0;
     newString[1] = 'x';
-    strncat(newString, result + 6, newLength);
+    if (ptr == (void *)-1)
+    {
+        strncat(newString, result + 2, newLength);
         newString[newLength] = '\0';
+    }
+    else
+    {
+        strncat(newString, result + 6, newLength);
+        newString[newLength] = '\0';
+    }
+    
+    
     
     resultString = (char *)malloc(3);
     if (resultString == NULL)
@@ -65,7 +76,6 @@ char *pointerToHex(void *ptr)
     }
     strcpy(resultString, "0x");
 
-    
     currentLength = strlen(resultString);
     appendLength = strlen(newString);
 
