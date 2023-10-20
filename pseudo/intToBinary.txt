@@ -1,0 +1,37 @@
+function intToBinary(number)
+    // Define variables
+    bits = number of bits in an integer
+    i
+    firstOne
+    result
+    binary = allocateMemory(bits + 1)
+
+    // Check for memory allocation failure
+    if binary is NULL
+        return NULL
+
+    // Null-terminate the binary string
+    binary[bits] = '\0'
+
+    // Convert the integer to its binary representation
+    for i from bits - 1 to 0 step -1
+        if (number & 1) is true
+            binary[i] = '1'
+        else
+            binary[i] = '0'
+
+        number = number right-shifted by 1
+
+    // Find the position of the first '1' in the binary string
+    firstOne = find '1' in binary
+
+    // Create a new string result based on the first '1' position
+    if firstOne is not NULL
+        result = create a new string from firstOne
+    else
+        result = create a new string "0"
+
+    // Free the memory allocated for the binary string
+    free(binary)
+
+    return result
