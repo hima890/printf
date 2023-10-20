@@ -13,7 +13,7 @@
  * @format: The format string containing format specifiers.
  * @...: Variable number of arguments corresponding to the format specifiers.
  * Return: None (void)
- */
+*/
 
 int _printf(const char *format, ...)
 {
@@ -42,6 +42,7 @@ int _printf(const char *format, ...)
         {'p', "pointer"},
         {'+', "flag"},
         {' ', "flag"},
+        {'#', "flag"},
         {0, NULL} /* Use 0 to indicate the end of the list */
     };
 
@@ -267,7 +268,7 @@ int _printf(const char *format, ...)
                         {
                             char *formated_argiment;
                             unsigned int value = va_arg(input_string_arg, int);
-                            formated_argiment = intToOctal(value);
+                            formated_argiment = intToOctal(value);    
                             appendToCharBuffer(input_string_buffer, formated_argiment);
                         }
                         else if (format[input_string_index] == 'x')
@@ -404,8 +405,58 @@ int _printf(const char *format, ...)
                             
                         }
 
+                        else if ((format[input_string_index] == '#' && format[input_string_index + 1] == 'o'))
+                        {
+                            char *formated_argiment;
+                            char *formated_argiment2;
+                            
+                            unsigned int value = va_arg(input_string_arg, int);
+                            input_string_index++;
+                            formated_argiment = intToOctal(value);    
+
+                            if (value > 0)
+                            {
+                                formated_argiment2 = addSignToString(formated_argiment, '0');
+                                appendToCharBuffer(input_string_buffer, formated_argiment2);
+                            }
+                            else
+                            {
+                                appendToCharBuffer(input_string_buffer, formated_argiment);
+
+                            }
+                            
+    
+                        }
                         
-                        
+                        else if ((format[input_string_index] == '#' && format[input_string_index + 1] == 'x'))
+                        {
+                            char *formated_argiment;
+                            char *formated_argiment2;
+
+                            unsigned int value = va_arg(input_string_arg, int);
+                            input_string_index++;
+
+                            formated_argiment = intToHex(value, 0);
+                            
+                            formated_argiment2 = add0xPrefixToHex(formated_argiment);
+                            appendToCharBuffer(input_string_buffer, formated_argiment2);
+                                  
+                        }
+
+                        else if ((format[input_string_index] == '#' && format[input_string_index + 1] == 'X'))
+                        {
+                            char *formated_argiment;
+                            char *formated_argiment2;
+
+                            unsigned int value = va_arg(input_string_arg, int);
+                            input_string_index++;
+
+                            formated_argiment = intToHex(value, 1);
+                            
+                            formated_argiment2 = add0xPrefixToHex(formated_argiment);
+                            appendToCharBuffer(input_string_buffer, formated_argiment2);
+                                  
+                        }
                     }
                     else
                     {

@@ -39,5 +39,6 @@ char *intToHex(unsigned int value, int flag);
 char *convertNonPrintableCharToHex(char *inputString);
 char *pointerToHex(void *ptr);
 char* addSignToString(const char* originalString, char sign);
+char* add0xPrefixToHex(const char* hexString);
 void writeToConsole(const char *buffer);
 #endif
