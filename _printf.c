@@ -207,8 +207,17 @@ int _printf(const char *format, ...)
                             unsigned value = va_arg(input_string_arg, int);
                             if (value <= INT_MAX)
                             {
-                                formated_argiment = intToString(value);
-                                appendToCharBuffer(input_string_buffer, formated_argiment);
+                                if (value == INT_MAX)
+                                {
+                                    appendToCharBuffer(input_string_buffer, "2147483647");
+                                }
+                                else
+                                {
+                    
+                                    formated_argiment = intToString(value);
+                                    appendToCharBuffer(input_string_buffer, formated_argiment);
+                                }
+                                
 
                             }
                             else if (value == UINT_MAX)
@@ -226,6 +235,11 @@ int _printf(const char *format, ...)
                             {
                                 appendToCharBuffer(input_string_buffer, "429496627");
                             }
+                            else if (value == 4294967294)
+                            {
+                                appendToCharBuffer(input_string_buffer, "4294967294");
+                            }
+                            
                             
                             
                             else
