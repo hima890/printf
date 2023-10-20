@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "main.h"
 
 /**
@@ -18,27 +19,64 @@
  */
 char *pointerToHex(void *ptr)
 {
-    char *output = (char *)malloc(15);
-    unsigned long  address;
-    int i;
-    int digit;
+    char hexChars[] = "0123456789abcdef";
 
-    if (output == NULL) {
+    unsigned long address = (unsigned long)ptr;
+
+    int numDigits = (sizeof(void*) * 2);
+
+    char *result = (char*)malloc(numDigits + 3);
+    int index;
+
+    size_t newLength;
+    char *newString;
+    char *resultString;
+
+    size_t currentLength;
+    size_t appendLength;
+
+    if (result == NULL) 
+    {
         return (NULL);
     }
 
-    address = (unsigned long)ptr;
-    output[0] = '0';
-    output[1] = 'x';
+    index = numDigits + 2;
+    result[index] = '\0';
+    result[0] = '0';
+    result[1] = 'x';
+
+    while (index > 2)
+    {
+        index--;
+        result[index] = hexChars[address & 0xf];
+        address >>= 4;
+    }
+    newLength = strlen(result) - 4;
+    newString = (char *)malloc(14 + 1);
+    newString[0] = 0;
+    newString[1] = 'x';
+    strncat(newString, result + 6, newLength);
+        newString[newLength] = '\0';
+    
+    resultString = (char *)malloc(3);
+    if (resultString == NULL)
+    {
+        return (NULL);
+    }
+    strcpy(resultString, "0x");
 
     
-    for (i = 15; i >= 2; i--)
+    currentLength = strlen(resultString);
+    appendLength = strlen(newString);
+
+    resultString = (char *)realloc(resultString, currentLength + appendLength + 1);
+    if (resultString == NULL)
     {
-        digit = (address >> (i * 4)) & 0xF;
-        output[17 - i] = (digit < 10) ? ('0' + digit) : ('a' + digit - 10);
+        return (NULL);
     }
 
-    output[14] = '\0';
+    strcpy(resultString + currentLength, newString);
 
-    return (output);
+    resultString[currentLength + appendLength] = '\0';
+    return (resultString);
 }
