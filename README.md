@@ -26,10 +26,10 @@ Please note that this implementation does not handle various formatting options 
 
 To use the custom `printf` function in your C program, follow these steps:
 
-1. Include the `printf.h` header file in your source code.
+1. Include the `main.h` header file in your source code.
 
    ```c
-   #include "printf.h"
+   #include "main.h"
    ```
 
 2. Call the `_printf` function with the desired format and arguments. For example:
