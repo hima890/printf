@@ -1,4 +1,4 @@
-![Printf Function](hhttps://miro.medium.com/v2/resize:fit:1400/format:webp/1*M05Idy6FOOgxJMcE4LfFYw@2x.jpeg)
+![Printf Function](img.jpeg)
 
 
 # Project Name: Custom printf Function
