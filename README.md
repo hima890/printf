@@ -1,7 +1,7 @@
 ![Printf Function](img.jpg)
 
 
-# Project Name: Custom printf Function
+# Project Name: Custom printf Function 🚀
 
 ## Table of Contents
 - [Description](#description)
@@ -85,7 +85,7 @@ In addition to the standard conversion specifiers, the `_printf` function suppor
 You can find the source code for this project in the following GitHub repository:
 
 - [GitHub Repository: printf](https://github.com/hima890/printf)
-- Cloing this repo get you "140%" in the first deadline
+- Cloing this repo get you "140%🏆" in the first deadline
 
 Please feel free to clone, fork, or contribute to the repository as needed.
 
@@ -98,3 +98,4 @@ This project is provided under the open-source [MIT License](LICENSE). You are f
 ## By
 - IBRAHIM HANAFI
 - AHMED BASHER
+- It well be nice if you gave us a star🌟 🙏
