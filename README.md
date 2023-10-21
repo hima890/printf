@@ -45,7 +45,7 @@ To use the custom `printf` function in your C program, follow these steps:
 ### Example:
 
 ```c
-#include "printf.h"
+#include "main.h"
 
 int main() {
     int score = 85;
