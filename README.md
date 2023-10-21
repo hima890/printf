@@ -1,4 +1,4 @@
-![Printf Function](img.jpeg)
+![Printf Function](img.jpg)
 
 
 # Project Name: Custom printf Function
