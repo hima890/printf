@@ -10,6 +10,7 @@
 - [Custom Conversion Specifiers](#custom-conversion-specifiers)
 - [Repository](#repository)
 - [License](#license)
+- [By](#by)
 
 ---
 
@@ -94,5 +95,5 @@ This project is provided under the open-source [MIT License](LICENSE). You are f
 ---
 
 ## By
-IBRAHIM HANAFI
+IBRAHIM HANAFI, 
 AHMED BASHER
