@@ -3,9 +3,9 @@
 #include <stdlib.h>
 #include "main.h"
 /**
- * add0xPrefixToHex - Adds "0x" prefix to a given hexadecimal string.
+ * reverseString - Adds "0x" prefix to a given hexadecimal string.
  *
- * @hexString: The input hexadecimal string to which the "0x" prefix will be added.
+ * @str: The input hexadecimal string to which the "0x" prefix will be added.
  *
  * Description:
  *   This function takes an input hexadecimal string and returns a new string with "0x" added as a
